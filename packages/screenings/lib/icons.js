@@ -1,0 +1,1 @@
+Telescope.utils.icons.upvote = "heart-o";

@@ -1,0 +1,32 @@
+.posts-grid{
+
+  .post-domain{
+    display: none;
+  }
+
+  .post-meta{
+    display: none;
+  }
+
+  .post-vote {
+    left: 12px;
+    bottom: 8px;
+    .vote-actions{
+      border: none;
+    }
+    .vote-action{
+      padding: 0;
+      font-size: 14px;
+    }
+  }
+
+  .upvoted .fa-heart-o:before{
+    content: "\f004";
+  }
+
+}
+
+.post-summary{
+  font-weight: normal;
+  font-size: 16px;
+}
