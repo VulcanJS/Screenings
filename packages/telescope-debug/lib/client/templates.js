@@ -1,9 +1,4 @@
-Template.onRendered(function () {
-  var node = this.firstNode;
-  // filter out text nodes
-  if (node && $(node)[0].toString() !== "[object Text]") {
-    var $node = $(node);
-    var template = this.view.name.replace("Template.", "");
+var createHighlighter = function (template, $node) {
 
     var h = $node.outerHeight();
     var w = $node.outerWidth();
@@ -16,8 +11,8 @@ Template.onRendered(function () {
     var offsetParentLeft = offsetParent.offset().left;
     var offsetParentTop = offsetParent.offset().top;
 
-    console.log(template, h, w, l, t);
-    console.log(offsetParent, offsetParentLeft, offsetParentTop)
+    // console.log(template, h, w, l, t);
+    // console.log(offsetParent, offsetParentLeft, offsetParentTop)
 
     var div = $(document.createElement("div"));
 
@@ -25,6 +20,11 @@ Template.onRendered(function () {
     div.css("height", h);
     div.css("width", w);
     
+    if ($node.hasClass("zone-wrapper")) {
+      div.addClass("zone-highlighter");
+      template = $node.attr("data-zone");
+    }
+
     // if node's position is already relative or absolute, position highlighter at 0,0
     if (position === "relative" || position === "absolute") {
       div.css("left", 0);
@@ -37,21 +37,20 @@ Template.onRendered(function () {
     div.css("z-index", 10000+depth);
     div.attr("data-template", template);
 
-    $(node).append(div);
+    $node.append(div);  
+};
 
-    // // Create a new style tag
-    // var style = document.createElement("style");
+Template.onRendered(function () {
 
-    // // Append the style tag to head
-    // document.head.appendChild(style);
+  var node = this.firstNode;
 
-    // // Grab the stylesheet object
-    // var sheet = style.sheet
-
-    // // Use addRule or insertRule to inject styles
-    // sheet.addRule('.red::before','color: green');
-    // // $(node).addClass('is-template').attr('data-template', template);
+  // filter out text nodes
+  if (node && $(node)[0].toString() !== "[object Text]") {
+    var $node = $(node);
+    var div = createHighlighter(this.view.name.replace("Template.", ""), $node);
+    $node.append(div);
   }
+
 });
 
 $(function () {
@@ -61,7 +60,6 @@ $(function () {
   $(document).keydown(function (e) {
     if (!allowKeydown) return;
 
-    console.log(e)
     if(e.keyCode === 192){
       $("body").addClass("show-highlighters");
     }
@@ -69,7 +67,6 @@ $(function () {
   });
 
   $(document).keyup(function (e) {
-    console.log(e)
     allowKeydown = true;
     if(e.keyCode === 192){
       $("body").removeClass("show-highlighters");

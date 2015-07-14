@@ -22,3 +22,13 @@
   z-index: 20000;
   padding: 2px 8px;
 }
+
+.zone-highlighter{
+  border-color: rgba(0,0,255,0.3);
+  &:hover{
+    background: rgba(0,0,255,0.15);
+  }
+}
+.zone-highlighter:hover:after{
+  background: blue;
+}
