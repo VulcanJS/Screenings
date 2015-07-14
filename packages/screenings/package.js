@@ -26,6 +26,7 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_thumbnail.html',
     'lib/client/templates/custom_submit_button.html',
     'lib/client/templates/custom_categories_menu.html',
+    'lib/client/templates/custom_user_menu.html',
     'lib/client/templates/custom_notifications_menu.html',
     'lib/client/templates/custom_post_vote.html',
     'lib/client/templates/custom_post_vote.js',
