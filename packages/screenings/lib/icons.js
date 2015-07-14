@@ -1,1 +1,2 @@
-Telescope.utils.icons.upvote = "heart-o";
+Telescope.utils.icons.liked = "heart";
+Telescope.utils.icons.notliked = "heart-o";

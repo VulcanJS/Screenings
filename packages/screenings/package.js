@@ -21,6 +21,14 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'lib/client/stylesheets/screenings.scss',
+    'lib/client/templates/custom_after_post_item.html',
+    'lib/client/templates/custom_after_post_item.js',
+    'lib/client/templates/custom_post_thumbnail.html',
+    'lib/client/templates/custom_submit_button.html',
+    'lib/client/templates/custom_categories_menu.html',
+    'lib/client/templates/custom_notifications_menu.html',
+    'lib/client/templates/custom_post_vote.html',
+    'lib/client/templates/custom_post_vote.js',
     'lib/client/templates/post_summary.html',
     'lib/client/templates/post_summary.js',
   ], ['client']);

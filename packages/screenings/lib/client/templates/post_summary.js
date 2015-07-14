@@ -1,5 +1,5 @@
 Template.post_summary.helpers({
   summary: function () {
-    return this.htmlBody;
+    return Telescope.utils.trimWords(this.htmlBody, 20);
   }
 });
