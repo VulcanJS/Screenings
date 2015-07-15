@@ -1,4 +1,6 @@
-var createHighlighter = function (template, $node) {
+var templatesDep = new Tracker.Dependency;
+
+var createHighlighter = function (templateName, $node) {
 
     var h = $node.outerHeight();
     var w = $node.outerWidth();
@@ -14,7 +16,7 @@ var createHighlighter = function (template, $node) {
     // console.log(template, h, w, l, t);
     // console.log(offsetParent, offsetParentLeft, offsetParentTop)
 
-    var div = $(document.createElement("div"));
+    var div = $(document.createElement("section"));
 
     div.addClass("template-highlighter");
     div.css("height", h);
@@ -22,7 +24,7 @@ var createHighlighter = function (template, $node) {
     
     if ($node.hasClass("zone-wrapper")) {
       div.addClass("zone-highlighter");
-      template = $node.attr("data-zone");
+      templateName = $node.attr("data-zone");
     }
 
     // if node's position is already relative or absolute, position highlighter at 0,0
@@ -35,31 +37,73 @@ var createHighlighter = function (template, $node) {
     }
 
     div.css("z-index", 10000+depth);
-    div.attr("data-template", template);
+    div.attr("data-template", templateName);
 
     $node.append(div);  
 };
 
+Telescope.debug.refresh = function () {
+  console.log('refreshing…')
+
+  // trigger autorun to re-run
+  templatesDep.changed();
+};
+
 Template.onRendered(function () {
 
-  var node = this.firstNode;
-  var template = this.view.name.replace("Template.", "");
+  var template = this;
+  var templateName = template.view.name.replace("Template.", "");
 
-  // put this in setTimeout so app has the time to load in content
-  Meteor.setTimeout(function () {
-    try {
-      // filter out text nodes
-      if (node && $(node)[0].toString() !== "[object Text]") {
-        var $node = $(node);
-        var div = createHighlighter(template, $node);
-        $node.append(div);
+  // exclude weird Blaze stuff and special templates
+  var excludedTemplates = ["__dynamicWithDataContext", "__dynamic", "module", "menuComponent", "menuItem", "avatar", "posts_list_controller"];
+
+  if (!_.contains(excludedTemplates, templateName)) {
+
+    Meteor.autorun(function (comp) {
+
+      templatesDep.depend() ;
+
+      // do nothing the first time (instead, wait to be triggered by hotkey)
+      if (!comp.firstRun) {
+
+        // console.log(templateName)
+        // console.log(template)
+        // console.log("-------------")
+
+        // TODO: when using {{#if}}, template.firstNode stays empty even after it's rendered
+        var node = template.firstNode;
+
+        if (node) {
+
+          // console.log("highlighting template: "+ template);
+          // console.log(this);
+
+          try {
+
+            // if this is a text node, try using nextSibling instead
+            // TODO: kinda hacky
+            if (node.nodeName === "#text") {
+              if (node.nextSibling && node.nextSibling.nodeName !== "#text") {
+                node = node.nextSibling;
+              } else {
+                throw new Error("Node has no content");
+              }
+            }
+
+            // do the thing 
+            var div = createHighlighter(templateName, $(node));
+            $(node).append(div);
+
+          } catch (error) {
+            // catch errors (usually text-only nodes, or empty templates)
+            console.log(templateName);
+            console.log(error);
+          }
+        }
       }
-    } catch (error) {
-      console.log(template);
-      console.log(error);
-    }
-  }, 1000);
 
+    });
+  }
 });
 
 $(function () {
@@ -70,15 +114,18 @@ $(function () {
     if (!allowKeydown) return;
 
     if(e.keyCode === 192){
-      $("body").addClass("show-highlighters");
+      Telescope.debug.refresh();
+      // $("body").addClass("show-highlighters");
     }
+
     allowKeydown = false;
   });
 
   $(document).keyup(function (e) {
     allowKeydown = true;
     if(e.keyCode === 192){
-      $("body").removeClass("show-highlighters");
+      // $("body").removeClass("show-highlighters");
+      $(".template-highlighter").remove();
     }
   });
 

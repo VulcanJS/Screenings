@@ -1,35 +1,46 @@
 .template-highlighter{
   position: absolute;
   border: 1px solid rgba(255,0,0,0.3);
-  display: none;
+  display: block;
   .show-highlighters &{
     display: block;
   }
   &:hover{
     // background: rgba(255,0,0,0.15);
+    border: 2px solid rgba(255,0,0,0.6);
     box-shadow: 0 0 0 99999px rgba(0, 0, 0, .2);
   }
 }
 
-.template-highlighter:hover:after{
-  display: inline-block;
+.template-highlighter:after{
+  display: none;
   content: attr(data-template);
   background:red;
   color:white;
   font-size:12px;
   position: absolute;
-  top: 100%;
+  bottom: 0px;
   right: 0px;
   z-index: 20000;
   padding: 2px 8px;
+}
+.template-highlighter:hover:after{
+  display: inline-block;
 }
 
 .zone-highlighter{
   border-color: rgba(0,0,255,0.3);
   &:hover{
-    // background: rgba(0,0,255,0.15);
+    border-color: rgba(0,0,255,0.6);
   }
-}
-.zone-highlighter:hover:after{
-  background: blue;
+  &:after{
+    display: inline-block;
+    background: blue;
+    opacity: 0.6;
+  }
+  &:hover:after{
+    display: inline-block;
+    background: blue;
+    opacity: 1;
+  }
 }

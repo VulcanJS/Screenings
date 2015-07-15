@@ -23,11 +23,12 @@ hasMorePosts (Boolean)
 loadMoreHandler (Function)
 | What to do when the user clicks "load more"
 
+showFilters (Boolean)
+| Whether to show filters (views nav) (*not implemented yet*)
 -->
 
 <template name="posts_list">
   <div class="posts-wrapper grid grid-module">
-    {{> postsListIncoming data=incoming}}
     <div class="posts list {{postsLayout}}" aria-live="polite">
       {{#each postsCursor}}
         {{> before_post_item}}
