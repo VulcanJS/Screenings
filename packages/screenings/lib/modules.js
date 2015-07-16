@@ -3,6 +3,7 @@ Telescope.modules.remove("hero", "newsletter_banner");
 Telescope.modules.remove("top", "posts_views_nav");
 
 Telescope.modules.remove("postComponents", "post_rank");
+Telescope.modules.remove("postComponents", "post_vote");
 
 Telescope.modules.remove("postHeading", "post_domain");
 
@@ -13,6 +14,7 @@ Telescope.modules.remove("primaryNav", "pages_menu");
 
 Telescope.modules.remove("secondaryNav", "user_menu");
 Telescope.modules.remove("secondaryNav", "submit_button");
+Telescope.modules.remove("secondaryNav", "notifications_menu");
 
 Telescope.modules.remove("postMeta", "post_author");
 Telescope.modules.remove("postMeta", "post_info");
@@ -35,6 +37,16 @@ Telescope.modules.add("secondaryNav", {
 });
 
 Telescope.modules.add("postComponents", {
-  template: "post_edit_icon",
+  template: "post_footer",
   order: 100
+});
+
+Telescope.modules.add("postFooter", {
+  template: "post_vote",
+  order: 10
+});
+
+Telescope.modules.add("postFooter", {
+  template: "post_edit_icon",
+  order: 20
 });

@@ -1,14 +1,8 @@
 <template name="post_vote">
   <div class="vote-actions {{actionsClass}}">
-    <a class="vote-action upvote-link" href="#" title="{{_ "upvote_"}}">
+    <a class="vote-action upvote-link" href="#" title="Like">
       {{{icon "upvote"}}}
-      <span class="sr-only">{{_ "upvote_"}}</span>
+      <span class="sr-only">Like</span>
     </a>
-    {{#if enableDownvotes}}
-      <a class="vote-action downvote-link" href="#" title="{{_ "downvote_"}}">
-        {{{icon "downvote"}}}
-        <span class="sr-only">{{_ "downvote_"}}</span>
-      </a>
-    {{/if}}
   </div>
 </template>

@@ -107,24 +107,6 @@ body{
     display: block;
   }
 
-  .post-vote {
-    left: 12px;
-    bottom: 8px;
-    .vote-actions{
-      border: none;
-    }
-    .vote-action{
-      padding: 0;
-      font-size: 14px;
-    }
-  }
-
-  .post-edit_icon{
-    position: absolute;
-    left: 36px;
-    bottom: 6px;
-    font-size: 15px;
-  }
 }
 
 .post-title, .post-heading .post-title{
@@ -157,6 +139,66 @@ body{
   content: none;
 }
 
+.post-footer{
+  position: absolute;
+  bottom: 7px;
+  left: 8px;
+
+  .vote-actions{
+    position: static;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .vote-count{
+    overflow: hidden;
+    transition: max-width 300ms ease-out;
+    max-width: 0;
+    font-weight: normal;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    margin-top: -3px;
+    span{
+      display: inline-block;
+      line-height: 1;
+      background: #ddd;
+      padding: 4px 6px;
+      font-size: 12px;
+      position: relative;
+      margin-left: 5px;
+      &:after {
+        right: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(238, 238, 238, 0);
+        border-right-color: #ddd;
+        border-width: 5px;
+        margin-top: -5px;
+      }
+    }
+  }
+
+
+  .vote-action{
+    &:hover{
+      .vote-count{
+        max-width: 100px;
+      }
+    }
+  }
+  .edit-icon{
+    display: inline-block;
+    font-size: 15px;
+  }
+
+
+}
 .categories-menu{
   .menu-top-level{
     display: none;

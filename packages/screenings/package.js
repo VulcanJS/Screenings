@@ -39,6 +39,7 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_notifications_menu.html',
     'lib/client/templates/custom_post_vote.html',
     'lib/client/templates/custom_post_vote.js',
+    'lib/client/templates/post_footer.html',
     'lib/client/templates/post_edit_icon.html',
     'lib/client/templates/post_summary.html',
     'lib/client/templates/post_summary.js',
