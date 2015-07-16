@@ -9,3 +9,5 @@ Telescope.utils.icons.about = "question";
 Telescope.utils.icons.edit = "pencil-square-o";
 
 Telescope.utils.icons.close = "times";
+
+Telescope.utils.icons.external = "external-link";

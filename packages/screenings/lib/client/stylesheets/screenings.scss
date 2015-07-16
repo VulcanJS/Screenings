@@ -103,14 +103,6 @@ body{
     padding: 15px;
   }
 
-  .post-heading, .post-title{
-    font-size: 22px;
-    line-height: 1.3;
-    &:visited{
-      color: #444;
-    }
-  }
-
   .zone-wrapper{
     display: block;
   }
@@ -127,19 +119,30 @@ body{
     }
   }
 
-  .post-categories{
-    display: block;
-    margin: 0;
-    a:hover{
-      color: white;
-    }
-  }
-
   .post-edit_icon{
     position: absolute;
     left: 36px;
     bottom: 6px;
     font-size: 15px;
+  }
+}
+
+.post-title, .post-heading .post-title{
+  font-size: 22px !important;
+  line-height: 1.3;
+  a{
+    font-weight: normal;
+  }
+  &:visited{
+    color: #444;
+  }
+}
+
+.post-categories{
+  display: block;
+  margin: 0;
+  a:hover{
+    color: white;
   }
 }
 
@@ -175,4 +178,49 @@ body{
 .no-posts{
   color: white;
   border-color: rgba(255,255,255,0.6);
+}
+
+.single-post-item{
+  border-radius: 3px;
+  background: white;
+
+  .post-video{
+    background: black;
+    border-radius: 3px 3px 0 0;
+  }
+  .post-video-inner{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .post-content{
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .external-link{
+    opacity: 0.3;
+    position: relative;
+    top: 2px;
+  }
+
+  .post-body{
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .post-categories{
+    margin-bottom: 10px;
+  }
+
+  .post-info{
+    color: #999;
+  }
+}
+
+.footer{
+  margin: 0 0 10px 0;
+  padding: 0;
+  color: white;
 }

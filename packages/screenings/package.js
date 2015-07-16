@@ -24,7 +24,10 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'lib/client/stylesheets/screenings.scss',
+    'lib/client/js/jquery.fitvids.js',
     'lib/client/templates/custom_newsletter_banner.html',
+    'lib/client/templates/custom_post_page.html',
+    'lib/client/templates/custom_post_page.js',
     'lib/client/templates/custom_after_post_item.html',
     'lib/client/templates/custom_after_post_item.js',
     'lib/client/templates/custom_post_thumbnail.html',
