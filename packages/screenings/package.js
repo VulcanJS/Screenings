@@ -17,6 +17,9 @@ Package.onUse(function (api) {
   api.addFiles([
     'lib/modules.js',
     'lib/icons.js',
+    'lib/callbacks.js',
+    'lib/custom_fields.js',
+    'lib/colors.js'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -24,6 +27,8 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_after_post_item.html',
     'lib/client/templates/custom_after_post_item.js',
     'lib/client/templates/custom_post_thumbnail.html',
+    'lib/client/templates/custom_post_thumbnail.js',
+    'lib/client/templates/custom_post_title.html',
     'lib/client/templates/custom_submit_button.html',
     'lib/client/templates/custom_categories_menu.html',
     'lib/client/templates/custom_user_menu.html',
@@ -32,6 +37,10 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_vote.js',
     'lib/client/templates/post_summary.html',
     'lib/client/templates/post_summary.js',
+    'lib/client/templates/nav_footer.html',
+    'lib/client/templates/nav_footer.js',
+    'lib/client/templates/user_menu_icon.html',
+    'assets/screenings.png',
   ], ['client']);
 
 });

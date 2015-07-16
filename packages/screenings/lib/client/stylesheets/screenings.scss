@@ -9,6 +9,53 @@ body{
     font-size: 30px;
   }
 
+  .logo{
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .secondary-nav{
+    position: absolute;
+    bottom: 0px;
+    width: calc( 100% - 40px );
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding: 15px 0;
+  }
+
+  .nav-footer{
+    display: flex;
+    justify-content: space-around;
+    .nav-icon{
+      font-size: 18px;
+    }
+  }
+
+  .user-menu{
+    .menu-menu{
+      padding: 0 0 10px 0;
+      bottom: 20px;
+      left: 0px;
+      top: auto;
+    }
+    .menu-top-level:after{
+      display: none;
+    }
+  }
+
+  .nav-footer-search{
+    height: 36px;
+    transition: height 300ms ease-out;
+    overflow: hidden;
+    .header-submodule{
+      margin: 0;
+    }
+    .search-field{
+      max-width: 100%;
+    }
+    &.search-closed{
+      height: 0;
+    }
+  }
 }
 
 .newsletter-banner-wrapper{
@@ -21,22 +68,51 @@ body{
     background: none;
     color: white;
     border: 1px solid #999;
+    border-radius: 3px;
   }
 
 }
+
+.grid-module{
+  border-radius: 3px;
+}
+
 .posts-grid{
+
+  .post{
+    border-radius: 3px;
+  }
+
+  .post-thumbnail-link{
+    position: relative;
+    .video-duration{
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 3px 5px;
+      font-size: 12px;
+    }
+  }
+  .post-thumbnail-image{
+    border-radius: 3px 3px 0px 0px;
+  }
 
   .post-info{
     padding: 15px;
   }
 
-  .post-author, .post-meta-item{
-    display: none;
-  }
-
   .post-heading, .post-title{
     font-size: 22px;
     line-height: 1.3;
+    &:visited{
+      color: #444;
+    }
+  }
+
+  .zone-wrapper{
+    display: block;
   }
 
   .post-vote {
@@ -48,6 +124,14 @@ body{
     .vote-action{
       padding: 0;
       font-size: 14px;
+    }
+  }
+
+  .post-categories{
+    display: block;
+    margin: 0;
+    a:hover{
+      color: white;
     }
   }
 
@@ -71,4 +155,18 @@ body{
   .menu-accordion .menu-contents{
     max-height: none;
   }
+  .menu-item{
+    padding: 0 0 10px 0;
+  }
+  .item-active{
+    background: none;
+    .menu-label:before{
+      content: "❯ ";
+    }
+  }
+}
+
+.no-posts{
+  color: white;
+  border-color: rgba(255,255,255,0.6);
 }

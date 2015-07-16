@@ -1,0 +1,1 @@
+Telescope.colorElements.add(".header .nav-icon:hover", "accentColor", "color");

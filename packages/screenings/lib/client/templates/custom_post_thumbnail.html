@@ -3,6 +3,9 @@
     <div class="post-thumbnail" aria-hidden="true">
       <a class="post-thumbnail-link" href="{{pathFor 'post_page'}}">
         <img class="post-thumbnail-image" src="{{thumbnailUrl}}" onerror="this.style.display='none';" aria-hidden="true"/>
+        <!-- {{#if media.duration}}
+          <span class="video-duration">{{getDuration}}</span>
+        {{/if}} -->
       </a>
     </div>
   {{else}}
