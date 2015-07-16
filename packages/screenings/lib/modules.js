@@ -34,3 +34,7 @@ Telescope.modules.add("secondaryNav", {
   order: 20
 });
 
+Telescope.modules.add("postComponents", {
+  template: "post_edit_icon",
+  order: 100
+});

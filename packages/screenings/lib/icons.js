@@ -5,3 +5,7 @@ Telescope.utils.icons.user = "user";
 Telescope.utils.icons.add = "plus";
 Telescope.utils.icons.search = "search";
 Telescope.utils.icons.about = "question";
+
+Telescope.utils.icons.edit = "pencil-square-o";
+
+Telescope.utils.icons.close = "times";

@@ -24,6 +24,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'lib/client/stylesheets/screenings.scss',
+    'lib/client/templates/custom_newsletter_banner.html',
     'lib/client/templates/custom_after_post_item.html',
     'lib/client/templates/custom_after_post_item.js',
     'lib/client/templates/custom_post_thumbnail.html',
@@ -35,6 +36,7 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_notifications_menu.html',
     'lib/client/templates/custom_post_vote.html',
     'lib/client/templates/custom_post_vote.js',
+    'lib/client/templates/post_edit_icon.html',
     'lib/client/templates/post_summary.html',
     'lib/client/templates/post_summary.js',
     'lib/client/templates/nav_footer.html',
