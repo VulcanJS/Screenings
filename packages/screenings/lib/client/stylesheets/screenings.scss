@@ -1,30 +1,105 @@
+
+// --------------------------------------------------------------------------------------------------------- //
+// ------------------------------------------   Variables & Mixins   --------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
+// https://css-tricks.com/snippets/sass/custom-scrollbars-mixin/
+
+/// Mixin to customize scrollbars
+/// Beware, this does not work in all browsers
+/// @author Hugo Giraudel
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+// --------------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------   Global   --------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
 body{
   background: #333;
 }
 
+// --------------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------ Header/Nav --------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
 .header{
-  padding: 20px;
+  padding: 0 20px !important;
+  display: flex;
+  flex-direction: column;
 
   h1{
     font-size: 30px;
   }
 
   .logo{
-    padding-bottom: 15px;
+    padding: 20px 0 20px 0;
+    margin-bottom: 20px !important;
     border-bottom: 1px solid rgba(255,255,255,0.3);
+    flex-grow: 0;
+  }
+
+  .primary-nav{
+    flex-grow: 1;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width:  5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #666;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #111;
+        border-radius: 10px;
+    }
   }
 
   .secondary-nav{
-    position: absolute;
-    bottom: 0px;
-    width: calc( 100% - 40px );
+    flex-grow: 0;
     border-top: 1px solid rgba(255,255,255,0.3);
     padding: 15px 0;
+  }
+
+
+
+  .posts-views-menu{
+    .menu-top-level{
+      display: none;
+    }
   }
 
   .nav-footer{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     .nav-icon{
       font-size: 18px;
     }
@@ -58,20 +133,71 @@ body{
   }
 }
 
-.newsletter-banner-wrapper{
+.posts-views-menu{
+  .menu-sub-level{
+    display: flex;
+    .menu-label{
+      flex-grow: 0;
+      white-space: nowrap;
+    }
+    .menu-description{
+      display: none;
+      flex-grow: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-left: 5px;
+    }
+    &:hover .menu-description{
+      display: block;
+    }
+  }
 
-  flex-grow: 3;
-  width: 100%;
-  padding: 0;
-
-  .newsletter-banner{
-    background: none;
-    color: white;
-    border: 1px solid #999;
-    border-radius: 3px;
+  // marquee
+  .marquee-outer{
+    position: relative;
+  }
+  .marquee-inner{
+    position: absolute;
+    span{
+      position: relative;
+      animation: marquee 5s linear infinite;
+      &:after{
+        content: attr(data-content);
+        margin: 0 10px;
+      }
+    }
   }
 
 }
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -50%; }
+}
+
+.header .menu{
+  .menu-item{
+    padding: 0 0 10px 0;
+  }
+  .item-active{
+    background: none;
+    .menu-label:before{
+      content: "❯ ";
+    }
+  }
+}
+
+.categories-menu{
+  .menu-top-level{
+    display: none;
+  }
+  .menu-item:nth-child(1){
+    display: none;
+  }
+}
+
+// --------------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------ Posts Grid --------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
 
 .grid-module{
   border-radius: 3px;
@@ -199,28 +325,15 @@ body{
 
 
 }
-.categories-menu{
-  .menu-top-level{
-    display: none;
-  }
-  .menu-accordion .menu-contents{
-    max-height: none;
-  }
-  .menu-item{
-    padding: 0 0 10px 0;
-  }
-  .item-active{
-    background: none;
-    .menu-label:before{
-      content: "❯ ";
-    }
-  }
-}
-
 .no-posts{
   color: white;
   border-color: rgba(255,255,255,0.6);
 }
+
+// --------------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------ Single Post -------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
 
 .single-post-item{
   border-radius: 3px;
@@ -265,4 +378,25 @@ body{
   margin: 0 0 10px 0;
   padding: 0;
   color: white;
+}
+
+
+
+// --------------------------------------------------------------------------------------------------------- //
+// -------------------------------------------------   Other   --------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
+.newsletter-banner-wrapper{
+
+  flex-grow: 3;
+  width: 100%;
+  padding: 0;
+
+  .newsletter-banner{
+    background: none;
+    color: white;
+    border: 1px solid #999;
+    border-radius: 3px;
+  }
+
 }

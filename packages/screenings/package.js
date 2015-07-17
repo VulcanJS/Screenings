@@ -19,6 +19,9 @@ Package.onUse(function (api) {
     'lib/icons.js',
     'lib/callbacks.js',
     'lib/custom_fields.js',
+    'lib/views.js',
+    'lib/routes.js',
+    'lib/menus.js',
     'lib/colors.js'
   ], ['client', 'server']);
 
@@ -35,6 +38,7 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_title.html',
     'lib/client/templates/custom_submit_button.html',
     'lib/client/templates/custom_categories_menu.html',
+    'lib/client/templates/custom_posts_views_nav.html',
     'lib/client/templates/custom_user_menu.html',
     'lib/client/templates/custom_notifications_menu.html',
     'lib/client/templates/custom_post_vote.html',
@@ -45,7 +49,9 @@ Package.onUse(function (api) {
     'lib/client/templates/post_summary.js',
     'lib/client/templates/nav_footer.html',
     'lib/client/templates/nav_footer.js',
+    'lib/client/templates/custom_menu_item.html',
     'lib/client/templates/user_menu_icon.html',
+    'lib/client/templates/user_menu_icon.js',
     'assets/screenings.png',
   ], ['client']);
 

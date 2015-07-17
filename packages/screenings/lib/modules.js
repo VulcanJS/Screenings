@@ -31,6 +31,11 @@ Telescope.modules.add("postMeta", {
   order: 20
 });
 
+Telescope.modules.add("primaryNav", {
+  template: "posts_views_nav",
+  order: 1
+});
+
 Telescope.modules.add("secondaryNav", {
   template: "nav_footer",
   order: 20
