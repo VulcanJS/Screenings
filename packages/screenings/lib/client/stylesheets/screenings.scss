@@ -3,36 +3,41 @@
 // ------------------------------------------   Variables & Mixins   --------------------------------------- //
 // --------------------------------------------------------------------------------------------------------- //
 
-// https://css-tricks.com/snippets/sass/custom-scrollbars-mixin/
+$small-break: 600px;
+$medium-break: 800px;
 
-/// Mixin to customize scrollbars
-/// Beware, this does not work in all browsers
-/// @author Hugo Giraudel
-/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
-/// @param {Color} $foreground-color - Scrollbar's color
-/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
-/// @example scss - Scrollbar styling
-///   @include scrollbars(.5em, slategray);
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
-  // For Google Chrome
-  ::-webkit-scrollbar {
-      width:  $size;
-      height: $size;
+@mixin small(){
+  @media screen and (max-width: $small-break) {
+    @content;
   }
+}
+@mixin small-medium(){
+  @media screen and (max-width: $medium-break) {
+    @content;
+  }
+}
+@mixin medium(){
+  @media screen and (min-width: $small-break) and (max-width: $medium-break) {
+    @content;
+  }
+}
+@mixin medium-large(){
+  @media screen and (min-width: $small-break) {
+    @content;
+  }
+}
+@mixin large(){
+  @media screen and (min-width: $medium-break) {
+    @content;
+  }
+}
 
-  ::-webkit-scrollbar-thumb {
-      background: $foreground-color;
-  }
+@function black($opacity){
+  @return rgba(0,0,0,$opacity);
+}
 
-  ::-webkit-scrollbar-track {
-      background: $background-color;
-  }
-
-  // For Internet Explorer
-  body {
-    scrollbar-face-color: $foreground-color;
-    scrollbar-track-color: $background-color;
-  }
+@function white($opacity){
+  @return rgba(255,255,255,$opacity);
 }
 
 // --------------------------------------------------------------------------------------------------------- //
@@ -41,6 +46,10 @@
 
 body{
   background: #333;
+}
+
+.content-wrapper{
+  max-width: none;
 }
 
 // --------------------------------------------------------------------------------------------------------- //
@@ -186,12 +195,28 @@ body{
   }
 }
 
-.categories-menu{
+.desktop-nav .categories-menu{
   .menu-top-level{
     display: none;
   }
   .menu-item:nth-child(1){
     display: none;
+  }
+}
+
+// --------------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------ Grid Layout -------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
+@include medium{
+  .posts-grid .post{
+    width: calc((100% - 10px)/2);
+    &:nth-of-type(3n){
+      margin-right: 0px;
+    }
+    &:nth-of-type(2n){
+      margin-right: 10px;      
+    }
   }
 }
 
@@ -374,12 +399,6 @@ body{
   }
 }
 
-.footer{
-  margin: 0 0 10px 0;
-  padding: 0;
-  color: white;
-}
-
 
 
 // --------------------------------------------------------------------------------------------------------- //
@@ -409,11 +428,35 @@ body{
 }
 
 .form-page .grid, .page-body{
-  padding: 80px 150px;
+  @include medium-large{
+    padding: 80px 150px;
+  }
 }
 
 .page-container{
   .page-title{
     display: none;
+  }
+}
+
+.more-button{
+  background: black(0.3);
+  border-radius: 3px;
+  &, &:link, &:visited{
+    color: white;
+  }
+  &:hover{
+    color: white;
+    background: black(0.6);
+  }
+}
+
+
+.footer{
+  margin: 0 0 10px 0;
+  padding: 10px 0;
+  color: white(0.5);
+  a{
+    color: white;
   }
 }
