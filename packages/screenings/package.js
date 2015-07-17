@@ -15,6 +15,10 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
+    'package-tap.i18n'
+  ], ['client', 'server']);
+
+  api.addFiles([
     'lib/modules.js',
     'lib/icons.js',
     'lib/callbacks.js',
@@ -33,13 +37,15 @@ Package.onUse(function (api) {
     'lib/client/templates/custom_post_page.js',
     'lib/client/templates/custom_after_post_item.html',
     'lib/client/templates/custom_after_post_item.js',
+    'lib/client/templates/custom_post_submit.html',
     'lib/client/templates/custom_post_thumbnail.html',
     'lib/client/templates/custom_post_thumbnail.js',
     'lib/client/templates/custom_post_title.html',
     'lib/client/templates/custom_submit_button.html',
+    'lib/client/templates/custom_comment_submit.html',
+    'lib/client/templates/custom_comment_submit.js',
     'lib/client/templates/custom_categories_menu.html',
     'lib/client/templates/custom_posts_views_nav.html',
-    'lib/client/templates/custom_user_menu.html',
     'lib/client/templates/custom_notifications_menu.html',
     'lib/client/templates/custom_post_vote.html',
     'lib/client/templates/custom_post_vote.js',
@@ -54,5 +60,9 @@ Package.onUse(function (api) {
     'lib/client/templates/user_menu_icon.js',
     'assets/screenings.png',
   ], ['client']);
+
+  api.addFiles([
+    "i18n/en.i18n.json"
+  ], ["client", "server"]);
 
 });

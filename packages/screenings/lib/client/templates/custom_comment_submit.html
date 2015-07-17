@@ -1,0 +1,16 @@
+<template name="not_used_custom_comment_submit">
+  {{#if canComment}}
+    <div class="comment-form comment-new module">
+      <h4 class="comment-new-heading">What did you think?</h4>
+      <ul class="reactions">
+        {{#each reactions}}
+          {{log this}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      {{> quickForm collection="Comments" id="submitCommentForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitComment" fields=commentFields parentContext=this}}
+    </div>
+  {{else}}
+    <p class="cannot-comment-message">{{reason}}</p>
+  {{/if}}  
+</template>

@@ -16,10 +16,14 @@ Telescope.modules.remove("secondaryNav", "user_menu");
 Telescope.modules.remove("secondaryNav", "submit_button");
 Telescope.modules.remove("secondaryNav", "notifications_menu");
 
+Telescope.modules.remove("mobileNav", "notifications_menu");
+
 Telescope.modules.remove("postMeta", "post_author");
 Telescope.modules.remove("postMeta", "post_info");
 Telescope.modules.remove("postMeta", "post_comments_link");
 Telescope.modules.remove("postMeta", "post_admin");
+
+Telescope.modules.remove("profileDisplay", "user_downvoted_posts");
 
 Telescope.modules.add("postMeta", {
   template: "post_summary",

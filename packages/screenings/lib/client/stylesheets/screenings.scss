@@ -400,3 +400,20 @@ body{
   }
 
 }
+
+.grid .page-title{
+  font-size: 36px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.form-page .grid, .page-body{
+  padding: 80px 150px;
+}
+
+.page-container{
+  .page-title{
+    display: none;
+  }
+}
