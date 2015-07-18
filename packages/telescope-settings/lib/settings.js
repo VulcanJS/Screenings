@@ -468,10 +468,9 @@ Settings.before.insert(function (userId, doc) {
  * Add trailing slash if needed on update
  */
 Settings.before.update(function (userId, doc, fieldNames, modifier) {
-  console.log(modifier)
-  // if(modifier.$set && modifier.$set.siteUrl && modifier.$set.siteUrl.match(/\//g).length === 2) {
-  //   modifier.$set.siteUrl = modifier.$set.siteUrl + "/";
-  // }
+  if(modifier.$set && modifier.$set.siteUrl && modifier.$set.siteUrl.match(/\//g).length === 2) {
+    modifier.$set.siteUrl = modifier.$set.siteUrl + "/";
+  }
 });
 
 Meteor.startup(function () {
