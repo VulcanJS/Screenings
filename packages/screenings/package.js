@@ -32,6 +32,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
 
+    'lib/client/templates/common/head.html',
     'lib/client/templates/common/scr_newsletter_banner.html',
 
     'lib/client/templates/post_page/scr_post_page.html',
@@ -39,18 +40,17 @@ Package.onUse(function (api) {
     'lib/client/templates/post_page/scr_comment_submit.html',
     'lib/client/templates/post_page/scr_comment_submit.js',
 
+    'lib/client/templates/posts/scr_post_item.html',
+    'lib/client/templates/posts/scr_post_item.js',
     'lib/client/templates/posts/scr_after_post_item.html',
     'lib/client/templates/posts/scr_after_post_item.js',
     'lib/client/templates/posts/scr_post_submit.html',
     'lib/client/templates/posts/scr_post_thumbnail.html',
     'lib/client/templates/posts/scr_post_thumbnail.js',
-    'lib/client/templates/posts/scr_post_title.html',
     'lib/client/templates/posts/scr_post_vote.html',
     'lib/client/templates/posts/scr_post_vote.js',
     'lib/client/templates/posts/post_footer.html',
     'lib/client/templates/posts/post_edit_icon.html',
-    'lib/client/templates/posts/post_summary.html',
-    'lib/client/templates/posts/post_summary.js',
 
     'lib/client/templates/nav/scr_submit_button.html',
     'lib/client/templates/nav/scr_categories_menu.html',
@@ -61,7 +61,15 @@ Package.onUse(function (api) {
     'lib/client/templates/nav/user_menu_icon.html',
     'lib/client/templates/nav/user_menu_icon.js',
 
-    'lib/client/stylesheets/screenings.scss',
+    'lib/client/stylesheets/_colors.scss',
+    'lib/client/stylesheets/_global.scss',
+    'lib/client/stylesheets/_posts_grid.scss',
+    'lib/client/stylesheets/_mixins.scss',
+    'lib/client/stylesheets/_nav.scss',
+    'lib/client/stylesheets/_other.scss',
+    'lib/client/stylesheets/_post_page.scss',
+    'lib/client/stylesheets/screen.scss',
+
     'assets/screenings.png',
 
   ], ['client']);

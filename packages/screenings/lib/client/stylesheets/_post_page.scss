@@ -1,0 +1,46 @@
+
+// --------------------------------------------------------------------------------------------------------- //
+// ------------------------------------------------- Post Page --------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
+
+.single-post-item{
+  border-radius: 3px;
+  background: white;
+
+  .post-video{
+    background: black;
+    border-radius: 3px 3px 0 0;
+  }
+  .post-video-inner{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .post-content{
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .external-link{
+    opacity: 0.3;
+    position: relative;
+    top: 2px;
+  }
+
+  .post-body{
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .post-categories{
+    margin-bottom: 10px;
+  }
+
+  .post-info{
+    color: #999;
+  }
+}
+
+

@@ -1,0 +1,32 @@
+<template name="scr_post_item">
+  <div class="{{postClass}} {{moduleClass}}" id="{{_id}}">
+    <div class="post-content">
+      {{> post_thumbnail}}
+      <div class="post-overlay">
+      </div>
+      <a class="post-info" href="{{pathFor 'post_page'}}">
+        <h3 class="post-title2">{{title}}</h3>
+        <div class="post-summary">
+          <div class="post-summary-inner">
+            {{{summary}}}
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="post-footer">
+      <div class="post-footer-left">
+        {{> post_vote}}
+      </div>
+      <div class="post-footer-right">
+        {{> post_avatars}}
+        {{> post_discuss}}
+      </div>
+    </div>
+
+    <!-- 
+    {{> post_avatars}}
+    {{> post_discuss}}
+    {{> post_actions}}
+     -->
+  </div>
+</template>

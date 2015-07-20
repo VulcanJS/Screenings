@@ -1,0 +1,65 @@
+
+// --------------------------------------------------------------------------------------------------------- //
+// -------------------------------------------------   Other   --------------------------------------------- //
+// --------------------------------------------------------------------------------------------------------- //
+
+.newsletter-banner-wrapper{
+
+  flex-grow: 3;
+  order: -1;
+  width: 100%;
+  padding: 0;
+
+  .newsletter-banner{
+    background: none;
+    color: white;
+    border: 1px solid #999;
+    border-radius: 3px;
+  }
+
+}
+
+.grid .page-title{
+  font-size: 36px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.form-page .grid, .page-body{
+  @include medium-large{
+    padding: 80px 150px;
+  }
+}
+
+.page-container{
+  .page-title{
+    display: none;
+  }
+}
+
+.cannot-comment-message{
+  color: white;
+}
+
+.more-button{
+  background: black(0.3);
+  border-radius: 3px;
+  &, &:link, &:visited{
+    color: white;
+  }
+  &:hover{
+    color: white;
+    background: black(0.6);
+  }
+}
+
+
+.footer{
+  margin: 0 0 10px 0;
+  padding: 10px 0;
+  color: white(0.5);
+  a{
+    color: white;
+  }
+}
