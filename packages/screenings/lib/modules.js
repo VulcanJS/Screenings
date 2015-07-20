@@ -30,10 +30,10 @@ Telescope.modules.add("postMeta", {
   order: 10
 });
 
-Telescope.modules.add("postMeta", {
-  template: "post_categories",
-  order: 20
-});
+// Telescope.modules.add("postFooter", {
+//   template: "post_categories",
+//   order: 20
+// });
 
 Telescope.modules.add("primaryNav", {
   template: "posts_views_nav",
@@ -57,5 +57,5 @@ Telescope.modules.add("postFooter", {
 
 Telescope.modules.add("postFooter", {
   template: "post_edit_icon",
-  order: 20
+  order: 30
 });
