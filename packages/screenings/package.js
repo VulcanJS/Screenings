@@ -19,6 +19,7 @@ Package.onUse(function (api) {
   ], ['client', 'server']);
 
   api.addFiles([
+    'lib/config.js',
     'lib/modules.js',
     'lib/icons.js',
     'lib/callbacks.js',
@@ -30,34 +31,39 @@ Package.onUse(function (api) {
   ], ['client', 'server']);
 
   api.addFiles([
+
+    'lib/client/templates/common/scr_newsletter_banner.html',
+
+    'lib/client/templates/post_page/scr_post_page.html',
+    'lib/client/templates/post_page/scr_post_page.js',
+    'lib/client/templates/post_page/scr_comment_submit.html',
+    'lib/client/templates/post_page/scr_comment_submit.js',
+
+    'lib/client/templates/posts/scr_after_post_item.html',
+    'lib/client/templates/posts/scr_after_post_item.js',
+    'lib/client/templates/posts/scr_post_submit.html',
+    'lib/client/templates/posts/scr_post_thumbnail.html',
+    'lib/client/templates/posts/scr_post_thumbnail.js',
+    'lib/client/templates/posts/scr_post_title.html',
+    'lib/client/templates/posts/scr_post_vote.html',
+    'lib/client/templates/posts/scr_post_vote.js',
+    'lib/client/templates/posts/post_footer.html',
+    'lib/client/templates/posts/post_edit_icon.html',
+    'lib/client/templates/posts/post_summary.html',
+    'lib/client/templates/posts/post_summary.js',
+
+    'lib/client/templates/nav/scr_submit_button.html',
+    'lib/client/templates/nav/scr_categories_menu.html',
+    'lib/client/templates/nav/scr_posts_views_nav.html',
+    'lib/client/templates/nav/nav_footer.html',
+    'lib/client/templates/nav/nav_footer.js',
+    'lib/client/templates/nav/scr_menu_item.html',
+    'lib/client/templates/nav/user_menu_icon.html',
+    'lib/client/templates/nav/user_menu_icon.js',
+
     'lib/client/stylesheets/screenings.scss',
-    'lib/client/templates/custom_newsletter_banner.html',
-    'lib/client/templates/custom_post_page.html',
-    'lib/client/templates/custom_post_page.js',
-    'lib/client/templates/custom_after_post_item.html',
-    'lib/client/templates/custom_after_post_item.js',
-    'lib/client/templates/custom_post_submit.html',
-    'lib/client/templates/custom_post_thumbnail.html',
-    'lib/client/templates/custom_post_thumbnail.js',
-    'lib/client/templates/custom_post_title.html',
-    'lib/client/templates/custom_submit_button.html',
-    'lib/client/templates/custom_comment_submit.html',
-    'lib/client/templates/custom_comment_submit.js',
-    'lib/client/templates/custom_categories_menu.html',
-    'lib/client/templates/custom_posts_views_nav.html',
-    'lib/client/templates/custom_notifications_menu.html',
-    'lib/client/templates/custom_post_vote.html',
-    'lib/client/templates/custom_post_vote.js',
-    'lib/client/templates/post_footer.html',
-    'lib/client/templates/post_edit_icon.html',
-    'lib/client/templates/post_summary.html',
-    'lib/client/templates/post_summary.js',
-    'lib/client/templates/nav_footer.html',
-    'lib/client/templates/nav_footer.js',
-    'lib/client/templates/custom_menu_item.html',
-    'lib/client/templates/user_menu_icon.html',
-    'lib/client/templates/user_menu_icon.js',
     'assets/screenings.png',
+
   ], ['client']);
 
   api.addFiles([
