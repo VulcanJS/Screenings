@@ -2,72 +2,87 @@
 
 $nav-width: 250px;
 
-.side-nav{
-  .inner-wrapper{
-    @include medium-large{
-      margin-left: $nav-width;
-      padding-top: 10px;
-    }
+.inner-wrapper{
+  @include medium-large{
+    margin-left: $nav-width;
+    padding-top: 10px;
   }
-  .header{
+}
+.header{
+  background: black(0.3) !important;
+  @include medium-large{
+    width: $nav-width;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 30px;
+    background: none;
+  }
+  .logo{
+    @include small{
+      max-width: 270px;
+    }
     @include medium-large{
-      width: $nav-width;
-      position: fixed;
-      top: 0px;
-      bottom: 0px;
-      left: 0px;
-      height: 100%;
-      overflow-y: auto;
-      padding-bottom: 30px;
+      padding: 20px 0 15px 0;
+      margin-bottom: 20px !important;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      flex-grow: 0;
     }
-    .logo{
-      text-align: left;
-      &.logo-image{
-        text-align: center;
-        a{
-          margin: 0 auto;
-        }
-      }
-      @include medium-large{
-        margin-bottom: 30px;
+    &.logo-image{
+      text-align: center;
+      a{
+        margin: 0 auto;
       }
     }
-    .header-submodule{
+    @include medium-large{
       margin-bottom: 30px;
-      // &:last-of-type{
-      //  margin-bottom: 0px;
-      // }
     }
-    .primary-nav{
-      display: flex;
-      flex-direction: column;
+  }
+  .header-submodule{
+    margin-bottom: 30px;
+    // &:last-of-type{
+    //  margin-bottom: 0px;
+    // }
+  }
+  .primary-nav{
+    display: flex;
+    flex-direction: column;
+    .menu-sub-level{
+      font-size: 15px;
+      font-weight: $bold;
     }
-    .search{
-      order: 1;
+  }
+  .search{
+    order: 1;
+  }
+  .categories-menu{
+    order: 2;
+    .menu-sub-level{
+      display: inline-block;
     }
-    .categories-menu{
-      order: 2;
-    }
-    .menu-label{
-      display: block;
-    }
-    .menu-description{
-      // display: block;
-      display: none;
-      font-weight: normal;
-    }
-    .account-link{
-      display: block;
-      font-weight: bold;
-    }
+  }
+  .menu-label{
+    display: block;
+  }
+  .menu-description{
+    // display: block;
+    display: none;
+    font-weight: normal;
+  }
+  .account-link{
+    display: block;
+    font-weight: bold;
+  }
 
-    .account-link{
-      margin: 10px 0;
-    }
+  .account-link{
+    margin: 10px 0;
   }
-  .tagline{
-    margin-top: 10px;
-  }
+}
+.tagline{
+  margin-top: 10px;
 }
 
 // ---------------------------------------- Mobile ---------------------------------------- //
@@ -94,12 +109,6 @@ $nav-width: 250px;
     font-size: 30px;
   }
 
-  .logo{
-    padding: 20px 0 20px 0;
-    margin-bottom: 20px !important;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    flex-grow: 0;
-  }
 
   .primary-nav{
     flex-grow: 1;
@@ -184,6 +193,7 @@ $nav-width: 250px;
       overflow: hidden;
       white-space: nowrap;
       margin-left: 5px;
+      color: white(0.8);
     }
     &:hover .menu-description{
       display: block;
@@ -231,4 +241,11 @@ $nav-width: 250px;
   .menu-item:nth-child(1){
     display: none;
   }
+}
+
+.tagline{
+  font-size: 16px;
+  font-weight: $light;
+  margin: -5px 0 0 0;
+  color: white(0.6);
 }

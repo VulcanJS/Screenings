@@ -18,24 +18,51 @@
   }
 
   .post-content{
-    padding: 20px;
+    @include small{
+      padding: 20px;
+    }
+    @include medium-large{
+      padding: 40px 80px;
+    }
     margin-bottom: 10px;
+  }
+
+  .post-title{
+    @include small{
+      font-size: 24px;
+    }
+    @include medium-large{
+      font-size: 40px;
+    }
+    margin-bottom: 10px;
+    &, a{
+      font-weight: $bold;
+    }
   }
 
   .external-link{
     opacity: 0.3;
     position: relative;
     top: 2px;
+    font-size: 18px;
   }
 
   .post-body{
     padding: 0;
     background: none;
     box-shadow: none;
+    @include small{
+      font-size: 16px;
+    }
+    @include medium-large{
+      font-size: 24px;
+    }
+    margin-bottom: 20px;
+    color: #444;
   }
 
   .post-categories{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .post-info{

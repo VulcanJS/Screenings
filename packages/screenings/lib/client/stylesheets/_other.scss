@@ -1,8 +1,3 @@
-
-// --------------------------------------------------------------------------------------------------------- //
-// -------------------------------------------------   Other   --------------------------------------------- //
-// --------------------------------------------------------------------------------------------------------- //
-
 .newsletter-banner-wrapper{
 
   flex-grow: 3;
@@ -13,10 +8,19 @@
   .newsletter-banner{
     background: none;
     color: white;
-    border: 1px solid #999;
+    border: 1px solid white;
     border-radius: 3px;
+    font-size: 18px;
   }
-
+  .newsletter-email{
+    border: none;
+    height: 35px;
+    margin-right: 5px;  
+  }
+  .newsletter-tagline{
+    font-weight: $bold;
+    font-size: 18px;
+  }
 }
 
 .grid .page-title{

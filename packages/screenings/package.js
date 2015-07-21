@@ -33,6 +33,8 @@ Package.onUse(function (api) {
   api.addFiles([
 
     'lib/client/templates/common/head.html',
+    'lib/client/templates/common/scr_layout.html',
+    'lib/client/templates/common/scr_logo.html',
     'lib/client/templates/common/scr_newsletter_banner.html',
 
     'lib/client/templates/post_page/scr_post_page.html',
@@ -71,6 +73,8 @@ Package.onUse(function (api) {
     'lib/client/stylesheets/screen.scss',
 
     'assets/screenings.png',
+    'assets/logo.svg',
+    'assets/bg.jpg',
 
   ], ['client']);
 

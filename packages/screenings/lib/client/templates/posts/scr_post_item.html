@@ -16,10 +16,16 @@
     <div class="post-footer">
       <div class="post-footer-left">
         {{> post_vote}}
+        {{> post_discuss}}
+        <div class="post-duration">
+          {{{icon "duration"}}}
+          <span class="action-count">{{duration}}</span>
+        </div>
+        {{> post_edit_icon}}
       </div>
       <div class="post-footer-right">
+        <div class="post-timeago">{{timeAgo postedAt}}</div>
         {{> post_avatars}}
-        {{> post_discuss}}
       </div>
     </div>
 

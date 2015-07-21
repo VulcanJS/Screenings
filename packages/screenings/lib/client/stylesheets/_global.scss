@@ -3,9 +3,23 @@
 // ------------------------------------------------   Global   --------------------------------------------- //
 // --------------------------------------------------------------------------------------------------------- //
 
-body{
-  background: #333;
+html{
+  height: auto;
 }
+
+body{
+  // background-image: url(/packages/screenings/assets/bg.jpg);
+  // background-size: cover;
+  background-attachment: fixed;
+  // background: linear-gradient(to bottom, #76FFFE 0%, #AC76FF 50%, #300042 100%) no-repeat;
+  // background: linear-gradient(to bottom, #234664 0%, #332343 100%) no-repeat;
+  // background: #3A2E46 !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-weight: $regular;
+}
+
 
 body, input, button, textarea{
   font-family: "Ratio";
@@ -13,4 +27,18 @@ body, input, button, textarea{
 
 .content-wrapper{
   max-width: none;
+}
+
+.body-overlay{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 0.1;
+  filter: grayscale(100%) blur(1px);
 }

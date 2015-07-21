@@ -12,6 +12,4 @@ Telescope.utils.icons.close = "times";
 
 Telescope.utils.icons.external = "external-link";
 
-Telescope.utils.icons.popular = "fire";
-Telescope.utils.icons.best = "trophy";
-Telescope.utils.icons.short = "clock-o";
+Telescope.utils.icons.duration = "clock-o";

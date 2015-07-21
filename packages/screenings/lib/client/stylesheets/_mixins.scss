@@ -8,7 +8,7 @@ $medium-break: 800px;
 
 $light: 100;
 $regular: 300;
-$bold: 600;
+$bold: 500;
 
 @mixin small(){
   @media screen and (max-width: $small-break) {
