@@ -15,6 +15,7 @@
   }
   .logo{
     text-align: center;
+    flex-shrink: 0;
     @include small{
       max-width: 270px;
     }
@@ -26,9 +27,13 @@
     }
     .logo-text{
       position: relative;
+      font-size: 36px;
+      white-space: nowrap;
+      line-height: 1;
+      // display: inline-block;
       
       a, &:after{
-        font-size: 36px;
+        line-height: 1;
         letter-spacing: -3px;
         font-weight: $bold;
       }
@@ -99,10 +104,6 @@
     margin: 10px 0;
   }
 }
-.tagline{
-  margin-top: 10px;
-}
-
 // ---------------------------------------- Mobile ---------------------------------------- //
 
 @include small{
@@ -264,7 +265,7 @@
 .tagline{
   font-size: 16px;
   font-weight: $light;
-  margin: -5px 0 0 0;
+  margin: 5px 0 0 0;
   color: white(0.6);
   @include small{
     display: none;

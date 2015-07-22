@@ -32,7 +32,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
 
-    'lib/client/flowtype.js',
+    'lib/client/jquery.quickfit.js',
 
     'lib/client/templates/common/head.html',
     'lib/client/templates/common/scr_layout.html',
