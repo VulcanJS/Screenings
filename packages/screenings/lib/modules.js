@@ -35,6 +35,11 @@ Telescope.modules.add("postMeta", {
 //   order: 20
 // });
 
+Telescope.modules.add("mobileNav", {
+  template: "posts_views_nav",
+  order: 6
+});
+
 Telescope.modules.add("primaryNav", {
   template: "posts_views_nav",
   order: 1

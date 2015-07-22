@@ -27,6 +27,17 @@ body, input, button, textarea{
 
 .content-wrapper{
   max-width: none;
+  padding: 0;
+}
+
+
+$nav-width: 250px;
+
+.inner-wrapper{
+  @include medium-large{
+    margin-left: $nav-width;
+    // padding-top: 10px;
+  }
 }
 
 .body-overlay{
@@ -40,5 +51,5 @@ body, input, button, textarea{
   background-attachment: fixed;
   background-size: cover;
   opacity: 0.1;
-  filter: grayscale(100%) blur(1px);
+  filter: grayscale(100%);
 }

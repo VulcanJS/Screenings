@@ -6,11 +6,13 @@
   padding: 0;
 
   .newsletter-banner{
-    background: none;
-    color: white;
-    border: 1px solid white;
-    border-radius: 3px;
+    background: #eee;
+    // color: white;
+    // border: 1px solid white;
+    // border-radius: 3px;
+    // border-top: 1px solid black(0.2);
     font-size: 18px;
+    margin: 0;
   }
   .newsletter-email{
     border: none;
@@ -44,18 +46,6 @@
 
 .cannot-comment-message{
   color: white;
-}
-
-.more-button{
-  background: black(0.3);
-  border-radius: 3px;
-  &, &:link, &:visited{
-    color: white;
-  }
-  &:hover{
-    color: white;
-    background: black(0.6);
-  }
 }
 
 

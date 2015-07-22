@@ -9,7 +9,7 @@
     left:10px;
     top:-30px;
     // box-shadow: 0 1px 1px black(0.15);
-    border-radius: 3px;
+    // border-radius: 3px;
     background: black(0.05);
     padding:10px 0 0 10px;
     max-width:120px;
@@ -145,12 +145,12 @@
 .comment-content{
   position:relative;
   @extend .grid-block;
-  @include small{
-    border-radius: 3px;
-  }
-  @include medium-large{
-    border-radius: 0 3px 3px 3px;
-  }
+  // @include small{
+  //   // border-radius: 3px;
+  // }
+  // @include medium-large{
+  //   // border-radius: 0 3px 3px 3px;
+  // }
   font-size:14px;
   z-index: 10;
   margin-bottom:10px;
@@ -202,10 +202,10 @@
   }
   a{
     @include small{
-      border-radius: 0 0 3px 3px;
+      // border-radius: 0 0 3px 3px;
     }
     @include medium-large{
-      border-radius: 0 0 0 3px;     
+      // border-radius: 0 0 0 3px;     
     }
     position:relative;
     display:block;
@@ -219,10 +219,10 @@
     // border-right:1px solid $lightest-grey;
     &.upvote{
       @include small{
-        border-radius: 3px 3px 0 0;
+        // border-radius: 3px 3px 0 0;
       }
       @include medium-large{
-        border-radius: 3px 0 0 0;
+        // border-radius: 3px 0 0 0;
       }
       margin-bottom:1px;
     }
@@ -278,7 +278,7 @@
 }
 .comment-deleted{
   background: white(0.6);
-  border-radius: 3px;
+  // border-radius: 3px;
   margin-bottom: 10px;
   padding: 10px 15px;
   color: $light-text;

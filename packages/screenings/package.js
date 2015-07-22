@@ -32,9 +32,12 @@ Package.onUse(function (api) {
 
   api.addFiles([
 
+    'lib/client/flowtype.js',
+
     'lib/client/templates/common/head.html',
     'lib/client/templates/common/scr_layout.html',
     'lib/client/templates/common/scr_logo.html',
+    'lib/client/templates/common/scr_logo.js',
     'lib/client/templates/common/scr_newsletter_banner.html',
 
     'lib/client/templates/post_page/scr_post_page.html',
@@ -70,6 +73,7 @@ Package.onUse(function (api) {
     'lib/client/stylesheets/_nav.scss',
     'lib/client/stylesheets/_other.scss',
     'lib/client/stylesheets/_post_page.scss',
+    'lib/client/stylesheets/_accounts.scss',
     'lib/client/stylesheets/screen.scss',
 
     'assets/screenings.png',

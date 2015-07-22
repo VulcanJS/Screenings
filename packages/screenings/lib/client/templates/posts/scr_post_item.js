@@ -5,7 +5,7 @@ Template.post_item.helpers({
   duration: function () {
     if (this.media && this.media.duration) {
       var duration = moment.duration(this.media.duration, 'seconds');
-      return duration.humanize();
+      return duration.humanize().replace("minutes", "min");
     }
   }
 });

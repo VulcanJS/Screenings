@@ -7,7 +7,7 @@
         </a>
       </h1>
     {{else}}
-      <h1 class="logo-text"><a href="/">{{getSetting "title" "Telescope"}}</a></h1>
+      <h1 class="logo-text" data-content="{{getSetting 'title' 'Telescope'}}"><a href="/" data-content="{{getSetting 'title' 'Telescope'}}">{{getSetting "title" "Telescope"}}</a></h1>
     {{/if}}
     <h2 class="tagline">{{getSetting "tagline"}}</h2>
   </div>
