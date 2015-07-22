@@ -13,6 +13,9 @@
     // border-top: 1px solid black(0.2);
     font-size: 18px;
     margin: 0;
+    @include small{
+      margin-bottom: 10px;
+    }
   }
   .newsletter-email{
     border: none;
@@ -32,16 +35,28 @@
   margin-bottom: 30px;
 }
 
+
 .form-page .grid, .page-body{
-  @include medium-large{
+  @include small{
+    padding: 20px;
+  }
+  @include medium{
+    padding: 60px;
+  }
+  @include large{
     padding: 80px 150px;
   }
 }
 
 .page-container{
   .page-title{
-    display: none;
+    text-align: center;
+    font-size: 36px;
   }
+  .page-body{
+    font-size: 18px;
+  }
+  background: white;
 }
 
 .cannot-comment-message{

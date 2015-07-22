@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 .newsletter-tagline{
   font-weight: bold;
@@ -66,6 +65,7 @@
 @media screen and (max-width: 30em) {
   .newsletter-banner form{
     display: block;
+    text-align: center;
   }
   .newsletter-tagline{
     padding: 0 30px;

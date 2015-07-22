@@ -5,13 +5,11 @@
   <div class="nav-footer">
     {{#if isLoggedIn}}
       {{> menuComponent menuName="user" menuLabel="user_menu_icon" menuItems=menuItems menuMode="dropdown" menuClass="dropdown-top"}}
-
+    {{else}}
+      <a class="account-link sign-in" href="{{pathFor route='atSignIn'}}">{{{icon "user"}}}</a>
+    {{/if}}
       <a class="nav-icon" href="/submit">{{{icon "add"}}}</a>
       <a class="nav-icon js-toggle-search" href="/search">{{{icon "search"}}}</a>
       <a class="nav-icon" href="/page/about">{{{icon "about"}}}</a>
-    {{else}}
-      <a class="account-link sign-in" href="{{pathFor route='atSignUp'}}">{{_ "sign_up"}}</a>
-      <a class="account-link sign-up" href="{{pathFor route='atSignIn'}}">{{_ "sign_in"}}</a>
-    {{/if}}
   </div>
 </template>

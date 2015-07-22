@@ -30,12 +30,14 @@
       font-size: 36px;
       white-space: nowrap;
       line-height: 1;
+      font-weight: $bolder;
       // display: inline-block;
       
       a, &:after{
         line-height: 1;
-        letter-spacing: -3px;
-        font-weight: $bold;
+        letter-spacing: -2px;
+        // font-weight: $bold;
+        font-weight: $bolder;
       }
       a{
         position: relative;
@@ -264,7 +266,7 @@
 
 .tagline{
   font-size: 16px;
-  font-weight: $light;
+  font-weight: $regular;
   margin: 5px 0 0 0;
   color: white(0.6);
   @include small{

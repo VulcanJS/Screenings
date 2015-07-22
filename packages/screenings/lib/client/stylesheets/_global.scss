@@ -17,12 +17,12 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-weight: $regular;
 }
 
 
 body, input, button, textarea{
-  font-family: "Ratio";
+  // font-family: "Ratio";
+  // font-weight: $regular;
 }
 
 .content-wrapper{
@@ -52,4 +52,11 @@ $nav-width: 250px;
   background-size: cover;
   opacity: 0.1;
   filter: grayscale(100%);
+}
+
+
+.markdown{
+  h3{
+    font-size: 24px;
+  }
 }
