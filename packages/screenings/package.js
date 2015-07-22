@@ -5,6 +5,9 @@ Package.describe({
   git: "https://github.com/TelescopeJS/screenings"
 });
 
+Npm.depends({
+  'prerender-node': '2.0.1'
+});
 
 Package.onUse(function (api) {
 
@@ -31,6 +34,10 @@ Package.onUse(function (api) {
   ], ['client', 'server']);
 
   api.addFiles([
+    'lib/server/prerender.js'
+  ], ['server']);
+
+  api.addFiles([
 
     'lib/client/jquery.quickfit.js',
 
@@ -39,6 +46,7 @@ Package.onUse(function (api) {
     'lib/client/templates/common/scr_logo.html',
     'lib/client/templates/common/scr_logo.js',
     'lib/client/templates/common/scr_newsletter_banner.html',
+    'lib/client/templates/common/scr_page.html',
 
     'lib/client/templates/post_page/scr_post_page.html',
     'lib/client/templates/post_page/scr_post_page.js',
