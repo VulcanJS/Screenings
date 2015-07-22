@@ -1,0 +1,6 @@
+/* regular: 300 */
+
+body, input, button, textarea{
+  font-family: "Ratio";
+  font-weight: 300;
+}
