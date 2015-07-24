@@ -24,7 +24,7 @@
     @include medium-large{
       padding: 40px 80px;
     }
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   }
 
   .post-title{
@@ -67,6 +67,7 @@
 
   .post-info{
     color: #999;
+    margin-bottom: 20px;
   }
 }
 

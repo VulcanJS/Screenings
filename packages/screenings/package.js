@@ -34,7 +34,9 @@ Package.onUse(function (api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'lib/server/prerender.js'
+    'lib/server/prerender.js',
+    'lib/server/templates/custom_emailDigest.handlebars',
+    'lib/server/templates/custom_emailPostItem.handlebars'
   ], ['server']);
 
   api.addFiles([
@@ -46,7 +48,9 @@ Package.onUse(function (api) {
     'lib/client/templates/common/scr_logo.html',
     'lib/client/templates/common/scr_logo.js',
     'lib/client/templates/common/scr_newsletter_banner.html',
+    'lib/client/templates/common/scr_newsletter_banner.js',
     'lib/client/templates/common/scr_page.html',
+    'lib/client/templates/common/footer_social.html',
 
     'lib/client/templates/post_page/scr_post_page.html',
     'lib/client/templates/post_page/scr_post_page.js',
@@ -87,6 +91,7 @@ Package.onUse(function (api) {
     'assets/screenings.png',
     'assets/logo.svg',
     'assets/bg.jpg',
+    'assets/favicon.ico'
 
   ], ['client']);
 

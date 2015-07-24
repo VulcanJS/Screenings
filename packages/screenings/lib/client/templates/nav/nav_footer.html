@@ -6,7 +6,7 @@
     {{#if isLoggedIn}}
       {{> menuComponent menuName="user" menuLabel="user_menu_icon" menuItems=menuItems menuMode="dropdown" menuClass="dropdown-top"}}
     {{else}}
-      <a class="account-link sign-in" href="{{pathFor route='atSignIn'}}">{{{icon "user"}}}</a>
+      <a class="nav-icon account-link sign-in" href="{{pathFor route='atSignIn'}}">{{{icon "user"}}}</a>
     {{/if}}
       <a class="nav-icon" href="/submit">{{{icon "add"}}}</a>
       <a class="nav-icon js-toggle-search" href="/search">{{{icon "search"}}}</a>

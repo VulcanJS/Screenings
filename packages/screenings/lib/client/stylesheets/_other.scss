@@ -60,15 +60,32 @@
 }
 
 .cannot-comment-message{
-  color: white;
+  &, a{
+    color: white;
+  }
 }
 
 
 .footer{
-  margin: 0 0 10px 0;
-  padding: 10px 0;
+  margin: 40px 0;
+  padding: 0;
   color: white(0.5);
+  font-size: 16px;
   a{
     color: white;
+  }
+  >div{
+    display: inline-block;
+  }
+}
+
+.social-link{
+  display: inline-block;
+  border: 1px solid white(0.4);
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  &:hover{
+    background: white(0.2);
   }
 }

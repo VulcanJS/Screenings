@@ -13,3 +13,6 @@ Telescope.utils.icons.close = "times";
 Telescope.utils.icons.external = "external-link";
 
 Telescope.utils.icons.duration = "clock-o";
+
+Telescope.utils.icons.twitter = "twitter";
+Telescope.utils.icons.facebook = "facebook";

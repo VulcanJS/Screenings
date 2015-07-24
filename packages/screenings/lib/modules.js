@@ -64,3 +64,8 @@ Telescope.modules.add("postFooter", {
   template: "post_edit_icon",
   order: 30
 });
+
+Telescope.modules.add("footer", {
+  template: "footer_social",
+  order: 20
+});

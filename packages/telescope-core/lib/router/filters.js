@@ -141,7 +141,7 @@ Router._filters = {
     var image = Settings.get("siteImage");
 
     if (!!title) {
-      props.title = title + " | " + Settings.get("title");
+      props.title = title;
     }
     if (!!description) {
       props.meta.description = description;
@@ -153,6 +153,7 @@ Router._filters = {
 
     SEO.set(props);
 
+    $('title').text(title);
   },
 
   setCanonical: function () {
