@@ -5,6 +5,7 @@
 * Made hero modules full width (thanks @jshimko!).
 * Renamed `nav` template to `header`.
 * Renamed `postsListTop` zone to `top`.
+* Renamed `footer` template to `footer_code`, which is part of the `footer` module zone. 
 * Any template can now be used as menu label in menu component.
 * Added `Telescope.menuItems.removeAll()`
 * Number of columns in Hubble grid layout now adapts to viewport width.
@@ -15,6 +16,7 @@
 * Fixed bug preventing non-logged-in users from signing up to newsletter (thanks @frabrunelle!).
 * Moved errors and banners styles to base theme.
 * Updated Kadira package.
+* Implemented post-specific SEO logic for generating Open Graph and Twitter meta tags.
 
 ## v0.21.2 “FastScope”
 
