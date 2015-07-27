@@ -22,7 +22,7 @@
 
           <h3 class="post-title">
             <a href="{{postLink}}" class="post-title" target="_blank">{{title}}</a>
-            <span class="external-link">{{{icon "external"}}}</span>
+            {{> post_vote}}
           </h3>
 
           {{#if body}}
@@ -38,7 +38,12 @@
             {{/if}}
           </div>
 
-          {{> post_vote}}
+          <div class="post-page-share">
+            <a class="social-link" href="//twitter.com/intent/tweet?text={{title}}&url={{postPageUrl}}&{{getSetting 'twitterAccount'}}" target="_blank">{{{icon "twitter"}}} Share on Twitter</a>
+            <a class="social-link" href="https://www.facebook.com/sharer/sharer.php?u={{postPageUrl}}" target="_blank">{{{icon "facebook"}}} Share on Facebook</a>
+          </div>
+
+          
           
         </div>
 

@@ -40,6 +40,12 @@
     }
   }
 
+  .post-vote{
+    display: inline-block;
+    font-size: 18px;
+    vertical-align: middle;
+  }
+  
   .external-link{
     opacity: 0.3;
     position: relative;
@@ -71,4 +77,6 @@
   }
 }
 
-
+.post-page-share{
+  margin-bottom: 20px;
+}

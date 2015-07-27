@@ -1,6 +1,9 @@
 Template.post_page.helpers({
-  postLink: function(){
+  postLink: function () {
     return Posts.getLink(this);
+  },
+  postPageUrl: function () {
+    return Posts.getPageUrl(this, true);
   }
 });
 

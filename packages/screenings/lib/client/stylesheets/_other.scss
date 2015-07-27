@@ -66,6 +66,14 @@
 }
 
 
+.social-link{
+  display: inline-block;
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 2px solid currentColor;
+}
+
 .footer{
   margin: 40px 0;
   padding: 0;
@@ -77,15 +85,10 @@
   >div{
     display: inline-block;
   }
-}
-
-.social-link{
-  display: inline-block;
-  border: 1px solid white(0.4);
-  font-size: 14px;
-  padding: 2px 8px;
-  border-radius: 3px;
-  &:hover{
-    background: white(0.2);
+  .social-link{
+    border: 2px solid white(0.4);
+    &:hover{
+      background: white(0.2);
+    }
   }
 }
