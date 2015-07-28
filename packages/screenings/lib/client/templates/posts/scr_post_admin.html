@@ -1,0 +1,12 @@
+<template name="scr_post_admin">
+  <div class="post-admin" aria-live="off">
+    {{#if isAdmin}}
+      {{#if showApprove}}
+        <a href="#" class="approve-link goto-edit">{{{icon "approve"}}}</a>
+      {{/if}}
+      {{#if showUnapprove}}
+        <a href="#" class="unapprove-link goto-edit">{{{icon "unapprove"}}}</a>
+      {{/if}}
+    {{/if}}
+  </div>
+</template>

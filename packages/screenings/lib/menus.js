@@ -14,5 +14,11 @@ Telescope.menuItems.add("viewsMenu", [
     route: 'posts_short',
     label: 'Short',
     description: 'Videos under three minutes'
+  },
+  {
+    route: 'posts_pending',
+    label: 'Pending',
+    description: 'Pending videos',
+    adminOnly: true
   }
 ]);

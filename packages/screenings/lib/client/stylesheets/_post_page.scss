@@ -79,4 +79,10 @@
 
 .post-page-share{
   margin-bottom: 20px;
+  @include small{
+    a{
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
 }

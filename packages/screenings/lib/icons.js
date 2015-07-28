@@ -16,3 +16,6 @@ Telescope.utils.icons.duration = "clock-o";
 
 Telescope.utils.icons.twitter = "twitter";
 Telescope.utils.icons.facebook = "facebook";
+
+Telescope.utils.icons.approve = "check-circle-o";
+Telescope.utils.icons.unapprove = "times-circle-o";

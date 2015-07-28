@@ -57,6 +57,7 @@ Package.onUse(function (api) {
     'lib/client/templates/post_page/scr_comment_submit.html',
     'lib/client/templates/post_page/scr_comment_submit.js',
 
+    'lib/client/templates/posts/scr_post_admin.html',
     'lib/client/templates/posts/scr_post_item.html',
     'lib/client/templates/posts/scr_post_item.js',
     'lib/client/templates/posts/scr_after_post_item.html',
