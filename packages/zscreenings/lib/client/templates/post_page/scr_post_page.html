@@ -1,0 +1,56 @@
+<template name="scr_post_page">
+  {{#with post}}
+    {{#if isPending}}
+      <div class="grid">
+        <div class="error pending-message module">
+          {{_ "thanks_your_post_is_awaiting_approval"}}
+        </div>
+      </div>
+    {{/if}}
+    <div class="single-post grid">
+      <div class="single-post-item">
+
+        {{#with media}}
+          <div class="post-video">
+            <div class="post-video-inner js-video">
+              {{{html}}}
+            </div>
+          </div>
+        {{/with}}
+
+        <div class="post-content">
+
+          <h3 class="post-title">
+            <a href="{{this.getLink}}" class="post-title" target="_blank">{{title}}</a>
+            {{> post_vote}}
+          </h3>
+
+          {{#if body}}
+            {{> post_body}}
+          {{/if}}
+
+          {{> post_categories}}
+
+          <div class="post-info">
+            Submitted by <a class="post-author" href="{{getProfileUrl userId}}">{{getDisplayName userId}}</a> {{#if postedAt}}<span class="post-time">{{timeAgo postedAt}}</span>{{/if}}
+            {{#if canEdit this}}
+              | <a href="{{pathFor route='post_edit' _id=_id}}" class="edit-link goto-edit">{{_ "edit"}}</a>
+            {{/if}}
+          </div>
+
+          <div class="post-page-share">
+            <a class="social-link" href="//twitter.com/intent/tweet?text={{title}}&url={{postPageUrl}}&via={{getSetting 'twitterAccount'}}" target="_blank">{{{icon "twitter"}}} Share on Twitter</a>
+            <a class="social-link" href="https://www.facebook.com/sharer/sharer.php?u={{postPageUrl}}" target="_blank">{{{icon "facebook"}}} Share on Facebook</a>
+          </div>
+
+          
+          
+        </div>
+
+      </div>
+
+      {{> comment_submit}}
+      {{> comment_list}}
+    </div>
+  {{/with}}
+</template>

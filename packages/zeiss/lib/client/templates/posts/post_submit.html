@@ -1,0 +1,8 @@
+<template name="zss_post_submit">
+  <div class="form-page post-submit">
+    <div class="grid grid-module post-submit">
+      <h2 class="page-title">Submit a Video</h2>
+      {{> quickForm collection="Posts" id="submitPostForm" template="bootstrap3-horizontal" input-col-class="controls" type="method" meteormethod="submitPost" fields=postFields}}
+    </div>
+</div> 
+</template>

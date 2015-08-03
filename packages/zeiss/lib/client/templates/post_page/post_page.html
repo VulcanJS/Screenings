@@ -1,4 +1,4 @@
-<template name="scr_post_page">
+<template name="zss_post_page">
   {{#with post}}
     {{#if isPending}}
       <div class="grid">
@@ -21,7 +21,7 @@
         <div class="post-content">
 
           <h3 class="post-title">
-            <a href="{{postLink}}" class="post-title" target="_blank">{{title}}</a>
+            <a href="{{this.getLink}}" class="post-title" target="_blank">{{title}}</a>
             {{> post_vote}}
           </h3>
 

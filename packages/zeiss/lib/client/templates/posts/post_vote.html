@@ -1,0 +1,16 @@
+<template name="zss_post_vote">
+  <div class="post-vote">
+    <div class="vote-actions {{actionsClass}}">
+      <a class="vote-action upvote-link" href="#" title="{{_ "upvote_"}}">
+        {{#if isLiked}}
+          {{{icon "liked"}}}
+          <span class="sr-only">{{_ "upvote_"}}</span>
+        {{else}}
+          {{{icon "notliked"}}}
+          <span class="sr-only">{{_ "upvote_"}}</span>
+        {{/if}}
+        <span class="vote-count"><span>{{upvotes}}</span></span>
+      </a>
+    </div>
+  </div>
+</template>

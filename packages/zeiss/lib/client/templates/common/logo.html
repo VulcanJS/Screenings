@@ -1,0 +1,14 @@
+<template name="zss_logo">
+  <div class="logo header-module">
+    {{#if logoUrl}}
+      <h1 class="logo-image ">
+        <a href="/">
+          <img src="{{logoUrl}}" alt="{{getSetting "title" "Telescope"}}"/>
+        </a>
+      </h1>
+    {{else}}
+      <h1 class="logo-text" data-content="{{getSetting 'title' 'Telescope'}}"><a href="/" data-content="{{getSetting 'title' 'Telescope'}}">{{getSetting "title" "Telescope"}}</a></h1>
+    {{/if}}
+    <h2 class="tagline">{{getSetting "tagline"}}</h2>
+  </div>
+</template>

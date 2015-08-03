@@ -1,0 +1,1 @@
+Telescope.config.addCustomPrefix("scr_");
