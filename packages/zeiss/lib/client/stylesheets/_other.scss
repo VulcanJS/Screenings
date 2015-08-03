@@ -60,11 +60,18 @@
 }
 
 .cannot-comment-message{
-  &, a{
-    color: white;
+  padding: 0;
+  a{
+    padding: 40px;
+    display: block;
   }
 }
 
+.category-title{
+  padding: 20px;
+  background: white;
+  font-weight: $bold;
+}
 
 .social-link{
   display: inline-block;
@@ -77,16 +84,14 @@
 .footer{
   margin: 40px 0;
   padding: 0;
-  color: white(0.5);
   font-size: 16px;
   a{
-    color: white;
   }
   >div{
     display: inline-block;
   }
   .social-link{
-    border: 2px solid white(0.4);
+    border: 2px solid currentColor;
     &:hover{
       background: white(0.2);
     }

@@ -1,5 +1,5 @@
 Package.describe({
-  name: "screenings",
+  name: "telescope:screenings",
   summary: "Screenings theme",
   version: "0.0.1",
   git: "https://github.com/TelescopeJS/screenings"
@@ -41,6 +41,9 @@ Package.onUse(function (api) {
 
   api.addFiles([
 
+    'lib/client/templates/typekit.html',
+    'lib/client/stylesheets/typekit.css',
+    
     // 'lib/client/templates/common/head.html',
     // 'lib/client/templates/common/scr_layout.html',
     // 'lib/client/templates/common/scr_logo.html',
@@ -87,10 +90,10 @@ Package.onUse(function (api) {
     // 'lib/client/stylesheets/_accounts.scss',
     // 'lib/client/stylesheets/screen.scss',
 
-    // 'assets/screenings.png',
-    // 'assets/logo.svg',
-    // 'assets/bg.jpg',
-    // 'assets/favicon.ico'
+    'assets/screenings.png',
+    'assets/logo.svg',
+    'assets/bg.jpg',
+    'assets/favicon.ico'
 
   ], ['client']);
 

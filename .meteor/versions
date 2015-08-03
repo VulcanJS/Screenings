@@ -109,7 +109,6 @@ sacha:juice@0.1.4
 sacha:spin@2.3.1
 sanjo:meteor-files-helpers@1.1.0_7
 sanjo:meteor-version@1.0.0
-screenings@0.0.1
 service-configuration@1.0.4
 session@1.1.0
 sha@1.0.3
@@ -154,6 +153,7 @@ telescope:tags@0.22.2
 telescope:theme-base@0.22.2
 telescope:update-prompt@0.22.2
 telescope:users@0.22.2
+telescope:zeiss@0.0.1
 templating@1.1.1
 tracker@1.0.7
 tsega:bootstrap3-datetimepicker@4.14.30_4
@@ -166,4 +166,3 @@ useraccounts:unstyled@1.11.1
 utilities:avatar@0.8.3
 webapp@1.2.0
 webapp-hashing@1.0.3
-zeiss@0.0.1

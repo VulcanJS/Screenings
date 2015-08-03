@@ -8,12 +8,7 @@ html{
 }
 
 body{
-  // background-image: url(/packages/screenings/assets/bg.jpg);
-  // background-size: cover;
   background-attachment: fixed;
-  // background: linear-gradient(to bottom, #76FFFE 0%, #AC76FF 50%, #300042 100%) no-repeat;
-  // background: linear-gradient(to bottom, #234664 0%, #332343 100%) no-repeat;
-  // background: #3A2E46 !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -21,8 +16,8 @@ body{
 
 
 body, input, button, textarea{
-  // font-family: "Ratio";
-  // font-weight: $regular;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", sans-serif;
+  font-weight: $regular;
 }
 
 .content-wrapper{

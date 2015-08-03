@@ -115,13 +115,6 @@
   text-shadow: 0px 1px 1px 0px black(0.25);
   padding: 0px;
   font-size: 24px;
-  &, &:link, &:visited{
-    color: white;
-  }
-  &:hover{
-    color: white;
-    background: black(0.6);
-  }
 }
 
 .no-posts, .cannot-comment-message{

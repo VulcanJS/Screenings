@@ -335,6 +335,13 @@ Settings.schema = new SimpleSchema({
       group: "07_integrations"
     }
   },
+  facebookPage: {
+    type: String,
+    optional: true,
+    autoform: {
+      group: "07_integrations"
+    }
+  },
   googleAnalyticsId: {
     type: String,
     optional: true,

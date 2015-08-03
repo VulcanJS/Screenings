@@ -1,5 +1,5 @@
 Package.describe({
-  name: "zeiss",
+  name: "telescope:zeiss",
   summary: "Zeiss theme",
   version: "0.0.1",
   git: "https://github.com/TelescopeJS/screenings"
@@ -30,8 +30,8 @@ Package.onUse(function (api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'lib/server/templates/custom_emailDigest.handlebars',
-    'lib/server/templates/custom_emailPostItem.handlebars'
+    'lib/server/templates/zss_emailDigest.handlebars',
+    'lib/server/templates/zss_emailPostItem.handlebars'
   ], ['server']);
 
   api.addFiles([
@@ -82,12 +82,8 @@ Package.onUse(function (api) {
     'lib/client/stylesheets/_other.scss',
     'lib/client/stylesheets/_post_page.scss',
     'lib/client/stylesheets/_accounts.scss',
-    'lib/client/stylesheets/screen.scss',
+    'lib/client/stylesheets/screen.scss'
 
-    'assets/screenings.png',
-    'assets/logo.svg',
-    'assets/bg.jpg',
-    'assets/favicon.ico'
 
   ], ['client']);
 

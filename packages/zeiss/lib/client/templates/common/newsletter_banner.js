@@ -4,7 +4,6 @@ Template.newsletter_banner.helpers({
     if(
           Settings.get('showBanner', false) === false
       ||  !Users.can.view(Meteor.user())
-      ||  Router.current().route.options.name !== 'posts_default'
       ||  Cookie.get('showBanner') === "no"
       ||  (Meteor.user() && Meteor.user().getSetting('newsletter.showBanner', true) === false)
       ||  (Meteor.user() && Meteor.user().getSetting('newsletter.subscribeToNewsletter', false) === true)

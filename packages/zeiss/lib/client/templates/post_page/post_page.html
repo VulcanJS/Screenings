@@ -33,18 +33,15 @@
 
           <div class="post-info">
             Submitted by <a class="post-author" href="{{getProfileUrl userId}}">{{getDisplayName userId}}</a> {{#if postedAt}}<span class="post-time">{{timeAgo postedAt}}</span>{{/if}}
-            {{#if canEdit this}}
-              | <a href="{{pathFor route='post_edit' _id=_id}}" class="edit-link goto-edit">{{_ "edit"}}</a>
-            {{/if}}
+            {{> post_edit_icon}}
+            {{> post_admin}}
           </div>
 
           <div class="post-page-share">
-            <a class="social-link" href="//twitter.com/intent/tweet?text={{title}}&url={{postPageUrl}}&via={{getSetting 'twitterAccount'}}" target="_blank">{{{icon "twitter"}}} Share on Twitter</a>
-            <a class="social-link" href="https://www.facebook.com/sharer/sharer.php?u={{postPageUrl}}" target="_blank">{{{icon "facebook"}}} Share on Facebook</a>
+            <a class="social-link" href="//twitter.com/intent/tweet?text={{title}}&url={{postPageUrl}}&via={{getSetting 'twitterAccount'}}" target="_blank">{{{icon "twitter"}}} {{_ "share_on_twitter"}}</a>
+            <a class="social-link" href="https://www.facebook.com/sharer/sharer.php?u={{postPageUrl}}" target="_blank">{{{icon "facebook"}}} {{_ "share_on_facebook"}}</a>
           </div>
 
-          
-          
         </div>
 
       </div>
