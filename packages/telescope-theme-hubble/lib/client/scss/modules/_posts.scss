@@ -131,9 +131,6 @@
 	.post-info {
 		flex-grow: 1;
 	}
-	.post-share {
-		order: 3;
-	}
 	.post-discuss {
 		order: 7;
 		@include small {
@@ -446,9 +443,7 @@
 		padding: 6px;
 	}
 }
-.post-share {
-	display: none;
-}
+
 // -------------------------------- post content --------------------------------- //
 
 

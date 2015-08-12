@@ -28,6 +28,22 @@ Categories.schema = new SimpleSchema({
     type: String,
     optional: true,
     editableBy: ["admin"]
+  },
+  parentId: {
+    type: String,
+    optional: true,
+    editableBy: ["admin"],
+    autoform: {
+      options: function () {
+        var categories = Categories.find().map(function (category) {
+          return {
+            value: category._id,
+            label: category.name
+          };
+        });
+        return categories;
+      }
+    }
   }
 });
 
@@ -67,7 +83,7 @@ Categories.getUrl = function(slug){
 };
 
 // add callback that adds categories CSS classes
-function addCategoryClass (post, postClass) {
+function addCategoryClass (postClass, post) {
   var classArray = _.map(getPostCategories(post), function (category){return "category-"+category.slug;});
   return postClass + " " + classArray.join(' ');
 }
