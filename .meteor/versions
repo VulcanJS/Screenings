@@ -143,6 +143,7 @@ telescope:posts@0.22.3
 telescope:releases@0.22.2
 telescope:rss@0.22.2
 telescope:scoring@0.22.2
+telescope:screenings@0.0.1
 telescope:search@0.22.2
 telescope:settings@0.22.2
 telescope:share@0.22.2
@@ -153,7 +154,7 @@ telescope:tags@0.22.2
 telescope:theme-base@0.22.2
 telescope:update-prompt@0.22.2
 telescope:users@0.22.2
-telescope:zeiss@0.1.4
+telescope:zeiss@0.1.6
 templating@1.1.1
 tracker@1.0.7
 tsega:bootstrap3-datetimepicker@4.14.30_4

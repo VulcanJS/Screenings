@@ -1,0 +1,53 @@
+/* regular: 300 */
+
+body, input, button, textarea{
+  font-family: "Ratio";
+  font-weight: 300;
+}
+
+/*================ Responsive Columns =================*/
+
+.content-wrapper{
+  padding: 0px;
+}
+
+@mixin onecol(){
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
+@mixin twocol(){
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    @content;
+  }
+}
+@mixin threecol(){
+  @media screen and (min-width: 1000px) and (max-width: 1400px) {
+    @content;
+  }
+}
+@mixin fourcol(){
+  @media screen and (min-width: 1400px) {
+    @content;
+  }
+}
+
+.posts {
+  .post {
+    margin-right: 0px;
+    margin-bottom: 0px;
+
+    @include onecol {
+      width: 100%;
+    }
+    @include twocol {
+      width: calc((100%)/2);
+    }
+    @include threecol {
+      width: calc((100%)/3);
+    }
+    @include fourcol {
+      width: calc((100%)/4);
+    }
+  }
+}

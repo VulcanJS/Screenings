@@ -42,4 +42,4 @@ telescope:update-prompt
 ############ Your Custom Packages ############
 
 telescope:zeiss
-#telescope:screenings
+telescope:screenings
