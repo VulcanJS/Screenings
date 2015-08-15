@@ -24,6 +24,7 @@
 	}
 	&:last-child {
 		border-radius: 0px 0px 3px 3px;
+		border-bottom: none;
 	}
 	&.animate {
 		transition: ease-out, top, 400ms, 0ms;
@@ -391,7 +392,7 @@
 	}
 	.avatar-link {
 		display: inline-block;
-		margin-right: 2px;
+		margin-right: 5px;
 		&:last-child {
 			margin-right: 0px;
 		}
