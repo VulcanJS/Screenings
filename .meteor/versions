@@ -154,7 +154,7 @@ telescope:tags@0.23.0
 telescope:theme-base@0.23.0
 telescope:update-prompt@0.23.0
 telescope:users@0.23.0
-telescope:zeiss@0.1.8
+telescope:zeiss@0.1.9
 templating@1.1.1
 tracker@1.0.7
 tsega:bootstrap3-datetimepicker@4.14.30_4
