@@ -1,3 +1,5 @@
+menuItemsGlobal= [];
+
 getRoute = function (item) {
   // if route is a Function return its result, else apply Router.path() to it
   return typeof item.route === "function" ? item.route() : Router.path(item.route);
@@ -33,6 +35,10 @@ filterMenuItems = function (menuItems, level, parentId) {
   return menuItems;
 };
 
+Template.menuComponent.onCreated(function () {
+  menuItemsGlobal = this.data.menuItems;
+});
+
 Template.menuComponent.helpers({
   rootMenuItems: function () {
     return filterMenuItems(this.menuItems, 0);
@@ -42,25 +48,14 @@ Template.menuComponent.helpers({
   },
   menuClass: function () {
     var classes = [this.menuName+"-menu"];
-    var mode = (typeof this.menuMode === "undefined") ? "list" : this.menuMode;
     var count = filterMenuItems(this.menuItems, 0).length;
-
-    classes.push("menu-"+mode);
 
     if (!!this.menuClass) {
       classes.push(this.menuClass)
     }
 
-    if (this.menuCollapsed) {
-      classes.push("menu-collapsed");
-      classes.push("menu-show-more");
-    }
-
     if (count) {
       classes.push("menu-has-items");
-      if (count > 3) {
-        classes.push("menu-show-more");
-      }
     } else {
       classes.push("menu-no-items");
     }
@@ -114,15 +109,28 @@ Template.menuItem.helpers({
   },
   childMenuItems: function () {
     var currentLevel = this.level;
-
-    // note: for some reason, we need to go back one level to go from child to root, but 
-    // two levels to go from grandchild to child
-    var levelIncrement = this.level === 1 ? 1 : 2;
-
-    var allMenuItems = Template.parentData(currentLevel+levelIncrement).menuItems;
-
     if (this._id) { // don't try to find child menu items if current element doesn't have an id
-      return filterMenuItems(allMenuItems, currentLevel, this._id);
+      return filterMenuItems(menuItemsGlobal, currentLevel, this._id);
     }
+  }
+});
+
+Template.menuComponent.events({
+  'click .menu-collapsible .menu-top-level-link': function (e) {
+    e.preventDefault();
+    var $menu = $(e.currentTarget).closest(".menu-collapsible");
+    $menu.toggleClass("menu-expanded");
+    $menu.find(".menu-items-toggle").first().toggleClass("toggle-expanded");
+    $menu.find(".menu-wrapper").first().slideToggle('fast');
+  },
+  'click .menu-collapsible .menu-items-toggle': function (e) {
+    e.preventDefault();
+    var $menuItem = $(e.currentTarget).closest(".menu-item");
+    $menuItem.toggleClass("menu-expanded");
+
+    // menu item could contain multiple nested sub-menus, so always use first()
+    $menuItem.find(".menu-items-toggle").first().toggleClass("toggle-expanded");
+    $menuItem.find(".menu-child-items").first().slideToggle('fast');
+  
   }
 });

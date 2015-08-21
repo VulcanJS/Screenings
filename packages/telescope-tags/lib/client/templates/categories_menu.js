@@ -12,7 +12,7 @@ Meteor.startup(function () {
       var menuItems = _.map(Categories.find({}, {sort: {order: 1, name: 1}}).fetch(), function (category) {
         return {
           route: function () {
-            return Categories.getUrl(category.slug);
+            return Categories.getUrl(category);
           },
           label: category.name,
           description: category.description,
@@ -22,13 +22,14 @@ Meteor.startup(function () {
       });
       return defaultItem.concat(menuItems);
     },
-    menuMode: function () {
-      if (!!this.mobile) {
-        return 'list';
+    menuClass: function () {
+      // go back up 4 levels to get the zone that's including the menu
+      if (Template.parentData(4).zone === "mobileNav") {
+        return 'menu-collapsible';
       } else if (Settings.get('navLayout', 'top-nav') === 'top-nav') {
-        return 'dropdown';
+        return 'menu-dropdown';
       } else {
-        return 'accordion';
+        return 'menu-collapsible menu-always-expanded';
       }
     }
   });
