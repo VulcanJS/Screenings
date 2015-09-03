@@ -34,6 +34,10 @@ $medium-break: 800px;
   }
 }
 
+$regular: 300;
+$bold: 500;
+$bolder: 800;
+
 /*================ Responsive Columns =================*/
 
 .content-wrapper{
@@ -86,4 +90,11 @@ $medium-break: 800px;
   @include small{
     margin-bottom: 10px;
   }
+}
+
+.category-title{
+  padding: 20px;
+  background: white;
+  font-weight: $bold;
+  margin-bottom: 0px;
 }
