@@ -95,6 +95,13 @@ Posts.controllers.pending = Posts.controllers.list.extend({
 });
 
 /**
+ * Controller for rejected view
+ */
+Posts.controllers.rejected = Posts.controllers.list.extend({
+  view: 'rejected'
+});
+
+/**
  * Controller for scheduled view
  */
 Posts.controllers.scheduled = Posts.controllers.list.extend({
@@ -124,9 +131,11 @@ Posts.controllers.page = RouteController.extend({
   },
 
   onBeforeAction: function () {
-    if (!this.post()) {
+    if (typeof this.post() === "undefined") {
       if (this.postSubscription.ready()) {
         this.render('not_found');
+      } else {
+        this.render('loading');
       }
     } else {
       this.next();
@@ -229,6 +238,13 @@ Meteor.startup(function () {
   Router.route('/pending/:limit?', {
     name: 'posts_pending',
     controller: Posts.controllers.pending
+  });
+
+  // Rejected
+
+  Router.route('/rejected/:limit?', {
+    name: 'posts_rejected',
+    controller: Posts.controllers.rejected
   });
 
   // Scheduled

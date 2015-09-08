@@ -19,29 +19,32 @@ function addCategoryClass (postClass, post) {
 }
 Telescope.callbacks.add("postClass", addCategoryClass);
 
-// when a category is added to a post, increment counter
-function updateCategoryCountOnSubmit (post) {
-  if (!_.isEmpty(post.categories))
-    Categories.update({_id: {$in: post.categories}}, {$inc: {"postsCount": 1}}, {multi: true});
+// ------- Categories Check -------- //
+
+// make sure all categories in the post.categories array exist in the db
+var checkCategories = function (post) {
+
+  // if there are not categories, stop here
+  if (!post.categories || post.categories.length === 0) {
+    return;
+  }
+
+  // check how many of the categories given also exist in the db
+  var categoryCount = Categories.find({_id: {$in: post.categories}}).count();
+
+  if (post.categories.length !== categoryCount) {
+    throw new Meteor.Error('invalid_category', i18n.t('invalid_category'));
+  }
+};
+
+function postSubmitCheckCategories (post) {
+  checkCategories(post);
+  return post;
 }
-Telescope.callbacks.add("postSubmitAsync", updateCategoryCountOnSubmit);
+Telescope.callbacks.add("postSubmit", postSubmitCheckCategories);
 
-function updateCategoryCountOnEdit (newPost, oldPost) {
-  
-  var categoriesAdded = _.difference(newPost.categories, oldPost.categories);
-  var categoriesRemoved = _.difference(oldPost.categories, newPost.categories);
-
-  if (!_.isEmpty(categoriesAdded))
-    Categories.update({_id: {$in: categoriesAdded}}, {$inc: {"postsCount": 1}}, {multi: true});
-  
-  if (!_.isEmpty(categoriesRemoved))
-    Categories.update({_id: {$in: categoriesRemoved}}, {$inc: {"postsCount": -1}}, {multi: true});
+function postEditCheckCategories (post) {
+  checkCategories(post);
+  return post;
 }
-Telescope.callbacks.add("postEditAsync", updateCategoryCountOnEdit);
-
-// when a post is deleted, decrement counter
-function updateCategoryCountOnDelete (post) {
-  Categories.update({_id: {$in: post.categories}}, {$inc: {"postsCount": -1}}, {multi: true});
-}
-Telescope.callbacks.add("postDeleteAsync", updateCategoryCountOnDelete);
-
+Telescope.callbacks.add("postEdit", postEditCheckCategories);

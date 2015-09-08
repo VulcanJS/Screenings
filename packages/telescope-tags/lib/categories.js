@@ -29,10 +29,6 @@ Categories.schema = new SimpleSchema({
     optional: true,
     editableBy: ["admin"]
   },
-  postsCount: {
-    type: Number,
-    optional: true,
-  },
   parentId: {
     type: String,
     optional: true,
@@ -51,7 +47,9 @@ Categories.schema = new SimpleSchema({
   }
 });
 
-Categories.schema.internationalize();
+Meteor.startup(function(){
+  Categories.internationalize();
+});
 
 Categories.attachSchema(Categories.schema);
 

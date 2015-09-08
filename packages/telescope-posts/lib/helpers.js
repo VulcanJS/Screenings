@@ -85,6 +85,15 @@ Posts.getDefaultStatus = function (user) {
 };
 
 /**
+ * Check if a post is approved
+ * @param {Object} post
+ */
+Posts.isApproved = function (post) {
+  return post.status === Posts.config.STATUS_APPROVED;
+};
+Posts.helpers({isApproved: function () {return Posts.isApproved(this);}});
+
+/**
  * Check to see if post URL is unique.
  * We need the current user so we know who to upvote the existing post as.
  * @param {String} url
@@ -96,8 +105,8 @@ Posts.checkForSameUrl = function (url, currentUser) {
   var sixMonthsAgo = moment().subtract(6, 'months').toDate();
   var postWithSameLink = Posts.findOne({url: url, postedAt: {$gte: sixMonthsAgo}});
 
-  if(typeof postWithSameLink !== 'undefined'){
-    Telescope.upvoteItem(Posts, postWithSameLink, currentUser);
+  if (typeof postWithSameLink !== 'undefined') {
+    Telescope.upvoteItem(Posts, postWithSameLink._id, currentUser);
 
     // note: error.details returns undefined on the client, so add post ID to reason
     throw new Meteor.Error('603', i18n.t('this_link_has_already_been_posted') + '|' + postWithSameLink._id, postWithSameLink._id);

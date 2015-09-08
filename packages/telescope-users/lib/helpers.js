@@ -19,7 +19,7 @@ Users.getUserName = function (user) {
   }
 };
 Users.helpers({getUserName: function () {return Users.getUserName(this);}});
-Users.getUserNameById = function (userId) {return Users.getUserName(Meteor.users.findOne(userId))}; 
+Users.getUserNameById = function (userId) {return Users.getUserName(Meteor.users.findOne(userId))};
 
 /**
  * Get a user's display name (not unique, can take special characters and spaces)
@@ -152,7 +152,7 @@ Users.helpers({getSetting: function (settingName, defaultValue) {return Users.ge
  */
 Users.setSetting = function (user, settingName, value) {
   if (user) {
-    
+
     // all settings should be in the user.telescope namespace, so add "telescope." if needed
     var field = settingName.slice(0,10) === "telescope." ? settingName : "telescope." + settingName;
 
@@ -224,58 +224,12 @@ Users.getProperty = function (object, property) {
   }
 };
 
-/**
- * Build Users subscription with filter, sort, and limit args.
- * @param {String} filterBy
- * @param {String} sortBy
- * @param {Number} limit
- */
-Users.getSubParams = function(filterBy, sortBy, limit) {
-  var find = {},
-      sort = {createdAt: -1};
-
-  switch(filterBy){
-    case 'invited':
-      // consider admins as invited
-      find = { $or: [{ isInvited: true }, { isAdmin: true }]};
-      break;
-    case 'uninvited':
-      find = { $and: [{ isInvited: false }, { isAdmin: false }]};
-      break;
-    case 'admin':
-      find = { isAdmin: true };
-      break;
-  }
-
-  switch(sortBy){
-    case 'username':
-      sort = { username: 1 };
-      break;
-    case 'karma':
-      sort = { karma: -1 };
-      break;
-    case 'postCount':
-      sort = { postCount: -1 };
-      break;
-    case 'commentCount':
-      sort = { commentCount: -1 };
-      break;
-    case 'invitedCount':
-      sort = { invitedCount: -1 };
-  }
-  return {
-    find: find,
-    options: { sort: sort, limit: limit }
-  };
-};
-
-
 Users.updateAdmin = function (userId, admin) {
   Users.update(userId, {$set: {isAdmin: admin}});
 };
 
-Users.adminUsers = function () {
-  return this.find({isAdmin : true}).fetch();
+Users.adminUsers = function (options) {
+  return this.find({isAdmin : true}, options).fetch();
 };
 
 Users.getCurrentUserEmail = function () {
