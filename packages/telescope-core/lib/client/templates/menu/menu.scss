@@ -15,6 +15,12 @@ $text: #444444;
   a{
     font-size:14px;
   }
+  &:first-child{
+    margin-top: 0px;
+  }
+  &:last-child{
+    margin-bottom: 0px;
+  }
 }
 .menu-items-toggle{
   display: none;
@@ -24,6 +30,8 @@ $text: #444444;
 }
 .menu-label{
   display: block;
+  font-weight: bold;
+  cursor: pointer;
 }
 .menu-description{
   display: block;
@@ -58,6 +66,7 @@ $text: #444444;
 .menu-child-items, .menu-collapsible .menu-wrapper{
   padding-left: 10px;
   border-left: 5px solid rgba(0,0,0,0.1);
+  margin: 10px 0 10px 6px;
   .medium-dark-bg &, .dark-bg & {
     border-color: rgba(255,255,255,0.1);
   }
@@ -124,7 +133,7 @@ $text: #444444;
     }
     .menu-contents{
       background:white;
-      padding: 0 10px;
+      padding: 10px;
       overflow: hidden; // prevent margin collapsing
       min-width:180px;
       border-radius: 3px;
@@ -136,7 +145,6 @@ $text: #444444;
     display: none;
   }
 }
-
 
 // ------------------------------------ Collapsible ------------------------------------ //
 
@@ -165,24 +173,38 @@ $text: #444444;
     &:hover{
       background: white(0.1);
     }
-    .icon-expand{
-      display: block;
-    }
-    .icon-collapse{
-      display: none;
-    }
-    &.toggle-expanded{
-      .icon-expand{
-        display: none;
-      }
-      .icon-collapse{
-        display: block;
-      }
-    }
+  }
+  .icon-expand{
+    display: block;
+  }
+  .icon-collapse{
+    display: none;
   }
   .menu-child-items{
     display: none;
+    // max-height: 0px;
+    // transition: max-height 300ms ease-out;
+    // overflow: hidden;
   }
+}
+
+.menu-expanded{
+  .menu-wrapper{
+    display: block;
+  }
+  &>.menu-item-wrapper, &>.menu-top-level{
+    .icon-expand{
+      display: none;
+    }
+    .icon-collapse{
+      display: block;
+    }
+  }
+  &>.menu-child-items{
+    display: block;
+    // max-height: none;
+  }
+
 }
 
 .menu-always-expanded{

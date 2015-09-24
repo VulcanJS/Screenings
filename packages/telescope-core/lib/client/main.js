@@ -1,41 +1,16 @@
 // Session variables
-Session.set('postsLimit', Settings.get('postsPerPage', 10));
+Session.set('appIsReady', false);
 
 Meteor.startup(function () {
-  $('#rss-link').attr('title', i18n.t('new_posts'));
+  var link = {rel: "alternate", type: "application/rss+xml", href: "/feed.xml", title: i18n.t("new_posts")};
+  DocHead.addLink(link);
 });
 
-// AutoForm.debug();
+// Global Subscriptions
 
-Meteor.startup(function() {
-
-  var seoProperties = {
-    meta: {},
-    og: {}
-  };
-
-  var title = Settings.get("title", "Telescope");
-  if (!!Settings.get("tagline")) {
-    title += ": "+Settings.get("tagline");
-  }
-
-  seoProperties.title = title;
-
-  if (!!Settings.get("description")) {
-    seoProperties.meta.description = Settings.get("description");
-    seoProperties.og.description = Settings.get("description");
-  }
-
-  if (!!Settings.get("siteImage")) {
-    seoProperties.og.image = Settings.get("siteImage");
-  }
-
-  SEO.config(seoProperties);
-
-});
-
-// Template extension stuff for backwards compatibility
-
-_.each(templates, function (replacement, original) {
-  Template[replacement].replaces(original);
+Telescope.subsManager = new SubsManager({
+  // cache recent 50 subscriptions
+  cacheLimit: 50,
+  // expire any subscription after 30 minutes
+  expireIn: 30
 });

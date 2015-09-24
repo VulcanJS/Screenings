@@ -1,6 +1,12 @@
 Template.category_title.helpers({
-  category: function () {
-    return Router.current().getCurrentCategory();
+  categories: function () {
+    var slugs = FlowRouter.getQueryParam("cat");
+    if (typeof slugs !== "undefined") {
+      if (typeof slugs === "string") {
+        slugs = [slugs];
+      }
+      return Categories.find({slug: {$in: slugs}});
+    }
   },
   categoryParents: function () {
     var category = this;

@@ -25,6 +25,7 @@ Template.post_admin.events({
     e.preventDefault();
 
     if(confirm("Delete “"+post.title+"”?")){
+      FlowRouter.go('postsDefault');
       Meteor.call("deletePostById", post._id, function(error) {
         if (error) {
           console.log(error);

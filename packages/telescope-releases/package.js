@@ -1,7 +1,7 @@
 Package.describe({
   name: "telescope:releases",
   summary: "Show Telescope release notes and phone home with some stats.",
-  version: "0.24.0",
+  version: "0.25.0",
   git: "https://github.com/TelescopeJS/telescope-releases.git"
 });
 
@@ -11,7 +11,7 @@ Package.onUse(function (api) {
 
   // --------------------------- 1. Meteor packages dependencies ---------------------------
 
-  api.use(['telescope:core@0.24.0']);
+  api.use(['telescope:core@0.25.0']);
 
   // ---------------------------------- 2. Files to include ----------------------------------
 
@@ -42,27 +42,12 @@ Package.onUse(function (api) {
     'lib/server/import_releases.js'
   ], ['server']);
 
-  api.addFiles('releases/0.11.0.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.11.1.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.12.0.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.13.0.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.14.0.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.14.1.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.14.2.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.14.3.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.15.0.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.20.4.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.20.5.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.20.6.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.21.1.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.22.1.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.22.2.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.23.0.md', 'server', { isAsset: true });
-  api.addFiles('releases/0.24.0.md', 'server', { isAsset: true });
+
+  api.addAssets('releases/0.25.0.md', 'server');
 
   // i18n languages (must come last)
 
-  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "it", "ja", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sv", "th", "tr", "vi", "zh-CN"];
+  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "id", "it", "ja", "kk", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sl", "sv", "th", "tr", "vi", "zh-CN"];
   var languagesPaths = languages.map(function (language) {
     return "i18n/"+language+".i18n.json";
   });

@@ -1,6 +1,16 @@
 var getRoute = function (item) {
   // if route is a Function return its result, else apply Router.path() to it
-  return typeof item.route === "function" ? item.route() : Router.path(item.route);
+  if (typeof item.route === "function") {
+    return item.route();
+  } else {
+    if (typeof Router !== "undefined") {
+      return Router.path(item.route);
+    } else if (typeof FlowRouter !== "undefined") {
+      return FlowRouter.path(item.route);
+    } else {
+      throw new Error("Please use Flow Router or Iron Router");
+    }
+  }
 };
 
 var filterMenuItems = function (menuItems) {
@@ -111,6 +121,8 @@ Template.menuItem.onCreated(function () {
   if (context.item.template) {
     Template[context.item.template].inheritsHelpersFrom("menuItem");
   }
+  // this should not be reactive, as we only want to set it once on template creation
+  this.expand = this.data.item.isExpanded;
 });
 
 Template.menuItem.helpers({
@@ -119,11 +131,14 @@ Template.menuItem.helpers({
   },
   menuItemData: function () {
     // if a data property is defined, use it for data context. Else default to current node
-    return this.item.data ? this.item.data : this;
+    return this;
+  },
+  expandedClass: function () {
+    return Template.instance().expand ? "menu-expanded" : "";
   },
   itemClass: function () {
     var itemClass = "";
-    var currentPath = Router.current().location.get().path ;
+    var currentPath = FlowRouter.current().path ;
 
     if (this.item.adminOnly) {
       itemClass += " item-admin";
@@ -135,7 +150,8 @@ Template.menuItem.helpers({
     if (this.item.itemClass) {
       itemClass += " "+this.item.itemClass;
     }
-
+    itemClass += " menu-level-" + this.level;
+    
     return itemClass;
   },
   itemLabel: function () {
@@ -151,21 +167,20 @@ Template.menuItem.helpers({
 });
 
 Template.menuComponent.events({
-  'click .menu-collapsible .menu-top-level-link': function (e) {
+  'click .menu-collapsible .js-menu-toggle': function (e) {
     e.preventDefault();
-    var $menu = $(e.currentTarget).closest(".menu-collapsible");
-    $menu.toggleClass("menu-expanded");
-    $menu.find(".menu-items-toggle").first().toggleClass("toggle-expanded");
-    $menu.find(".menu-wrapper").first().slideToggle('fast');
-  },
-  'click .menu-collapsible .menu-items-toggle': function (e) {
-    e.preventDefault();
-    var $menuItem = $(e.currentTarget).closest(".menu-item");
-    $menuItem.toggleClass("menu-expanded");
+    var $menuItem = $(e.currentTarget).closest(".js-menu-container");
 
-    // menu item could contain multiple nested sub-menus, so always use first()
-    $menuItem.find(".menu-items-toggle").first().toggleClass("toggle-expanded");
-    $menuItem.find(".menu-child-items").first().slideToggle('fast');
-  
+    if ($menuItem.hasClass("menu-expanded")) {
+      $menuItem.find(".js-menu-items").first().slideUp('fast', function () {
+        $menuItem.removeClass("menu-expanded");
+      });
+      
+    } else {
+      $menuItem.find(".js-menu-items").first().slideDown('fast', function () {
+        $menuItem.addClass("menu-expanded");
+      });
+    }
+
   }
 });

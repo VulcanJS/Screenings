@@ -1,7 +1,31 @@
+Template.post_edit.onCreated(function () {
+
+  var template = this;
+
+  // initialize the reactive variables
+  template.ready = new ReactiveVar(false);
+
+  var postSubscription = Telescope.subsManager.subscribe('singlePost', FlowRouter.getParam("_id"));
+  
+  // Autorun 3: when subscription is ready, update the data helper's terms
+  template.autorun(function () {
+
+    var subscriptionsReady = postSubscription.ready(); // ⚡ reactive ⚡
+
+    // if subscriptions are ready, set terms to subscriptionsTerms
+    if (subscriptionsReady) {
+      template.ready.set(true);
+    }
+  });
+
+});
+
 Template.post_edit.helpers({
-  canEdit: function () {
-    var post = this;
-    return Users.can.edit(Meteor.user(), post);
+  ready: function () {
+    return Template.instance().ready.get();
+  },
+  post: function () {
+    return Posts.findOne(FlowRouter.getParam("_id"));
   },
   postFields: function () {
     return Posts.simpleSchema().getEditableFields(Meteor.user());
@@ -33,7 +57,7 @@ AutoForm.hooks({
 
     onSuccess: function(formType, post) {
       Events.track("edit post", {'postId': post._id});
-      Router.go('post_page', post);
+      FlowRouter.go('postPage', post);
     },
 
     onError: function(formType, error) {
@@ -42,26 +66,5 @@ AutoForm.hooks({
       Messages.clearSeen();
     }
 
-  }
-});
-
-// delete link
-Template.post_edit.events({
-  'click .delete-link': function(e){
-    var post = this.post;
-
-    e.preventDefault();
-
-    if(confirm("Are you sure?")){
-      Meteor.call("deletePostById", post._id, function(error) {
-        if (error) {
-          console.log(error);
-          Messages.flash(error.reason, 'error');
-        } else {
-          Router.go("/");
-          Messages.flash(i18n.t('your_post_has_been_deleted'), 'success');
-        }
-      });
-    }
   }
 });

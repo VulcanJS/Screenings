@@ -4,7 +4,7 @@ var getMenuItems = function () {
   // reject an item if the item is admin only and the current user is not an admin
   // or if views have been configured in the settings and the item is not part of them
   var viewableItems = _.reject(defaultItems, function (item) {
-    return (item.adminOnly && !Users.is.admin(Meteor.user())) || (!!Settings.get('postViews') && !_.contains(Settings.get('postViews'), item.route));
+    return (item.adminOnly && !Users.is.admin(Meteor.user())) || (!!Settings.get('postViews') && !_.contains(Settings.get('postViews'), item.label));
   });
 
   return viewableItems; 
@@ -13,9 +13,5 @@ var getMenuItems = function () {
 Template.views_menu.helpers({
   menuItems: function () {
     return getMenuItems();
-  },
-  showNav: function () {
-    // only show menu when we're on the right pages, and there are at least 2 items
-    return !!Router.current().showViewsNav && getMenuItems().length >= 2;
   }
 });

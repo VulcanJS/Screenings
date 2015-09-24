@@ -1,7 +1,7 @@
 Package.describe({
   name: "telescope:core",
   summary: "Telescope core package",
-  version: "0.24.0",
+  version: "0.25.0",
   git: "https://github.com/TelescopeJS/Telescope.git"
 });
 
@@ -10,14 +10,14 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   
   var packages = [
-    'telescope:lib@0.24.0', //  no dependencies
-    'telescope:messages@0.24.0', // lib
-    'telescope:i18n@0.24.0', // lib
-    'telescope:events@0.24.0', // lib, i18n
-    'telescope:settings@0.24.0', // lib, i18n
-    'telescope:users@0.24.0', // lib, i18n, settings
-    'telescope:comments@0.24.0', // lib, i18n, settings, users
-    'telescope:posts@0.24.0' // lib, i18n, settings, users, comments
+    'telescope:lib@0.25.0', //  no dependencies
+    'telescope:messages@0.25.0', // lib
+    'telescope:i18n@0.25.0', // lib
+    'telescope:events@0.25.0', // lib, i18n
+    'telescope:settings@0.25.0', // lib, i18n
+    'telescope:users@0.25.0', // lib, i18n, settings
+    'telescope:comments@0.25.0', // lib, i18n, settings, users
+    'telescope:posts@0.25.0' // lib, i18n, settings, users, comments
   ];
 
   api.use(packages);
@@ -25,13 +25,9 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
-    'lib/router/config.js',
-    'lib/router/filters.js',
-    'lib/router/admin.js',
-    'lib/router/server.js',
-    'lib/config.js',
     'lib/modules.js',
-    'lib/vote.js'
+    'lib/vote.js',
+    'lib/subscriptions.js'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -44,11 +40,13 @@ Package.onUse(function(api) {
     'lib/client/templates/admin/admin_menu.html',
     'lib/client/templates/admin/admin_menu.js',
     'lib/client/templates/admin/admin_wrapper.html',
-    'lib/client/templates/admin/admin_wrapper.js',
     'lib/client/templates/common/css.html',
     'lib/client/templates/common/css.js',
     'lib/client/templates/common/footer_code.html',
     'lib/client/templates/common/footer_code.js',
+    'lib/client/templates/common/loader.html',
+    'lib/client/templates/common/checker.html',
+    'lib/client/templates/common/checker.js',
     'lib/client/templates/common/layout.html',
     'lib/client/templates/common/layout.js',
     'lib/client/templates/errors/already_logged_in.html',
@@ -75,19 +73,17 @@ Package.onUse(function(api) {
     'lib/client/templates/menu/menu_component.js'
   ], 'client');
 
-  // static assets; needs cleanup
-
-  api.addFiles([
-    'public/img/default-avatar.png',
-    'public/img/loading-balls.svg',
+  api.addAssets([
     'public/img/loading.svg',
   ], 'client');
 
   api.addFiles([
-    'lib/server/start.js'
+    'lib/server/start.js',
+    'lib/server/fastrender.js',
+    'lib/server/routes.js'
   ], ['server']);
 
-  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "it", "ja", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sv", "th", "tr", "vi", "zh-CN"];
+  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "id", "it", "ja", "kk", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sl", "sv", "th", "tr", "vi", "zh-CN"];
   var languagesPaths = languages.map(function (language) {
     return "i18n/"+language+".i18n.json";
   });

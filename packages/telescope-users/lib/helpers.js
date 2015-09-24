@@ -46,7 +46,7 @@ Users.getProfileUrl = function (user, isAbsolute) {
   }
   var isAbsolute = typeof isAbsolute === "undefined" ? false : isAbsolute; // default to false
   var prefix = isAbsolute ? Telescope.utils.getSiteUrl().slice(0,-1) : "";
-  return prefix + Router.path("user_profile", {_idOrSlug: user.telescope.slug || user._id});
+  return prefix + FlowRouter.path("userProfile", {_idOrSlug: user.telescope && user.telescope.slug || user._id});
 };
 Users.helpers({getProfileUrl: function (isAbsolute) {return Users.getProfileUrl(this, isAbsolute);}});
 
@@ -56,10 +56,12 @@ Users.helpers({getProfileUrl: function (isAbsolute) {return Users.getProfileUrl(
  */
 Users.getTwitterName = function (user) {
   // return twitter name provided by user, or else the one used for twitter login
-  if(Telescope.utils.checkNested(user, 'profile', 'twitter')){
-    return user.profile.twitter;
-  }else if(Telescope.utils.checkNested(user, 'services', 'twitter', 'screenName')){
-    return user.services.twitter.screenName;
+  if (typeof user !== "undefined") {
+    if (Telescope.utils.checkNested(user, 'profile', 'twitter')) {
+      return user.profile.twitter;
+    } else if(Telescope.utils.checkNested(user, 'services', 'twitter', 'screenName')) {
+      return user.services.twitter.screenName;
+    }
   }
   return null;
 };

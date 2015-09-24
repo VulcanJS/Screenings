@@ -1,5 +1,5 @@
 Telescope.menuItems.add("adminMenu", {
-  route: 'categories',
+  route: 'adminCategories',
   label: 'Categories',
   description: 'add_and_remove_categories'
 });
@@ -24,7 +24,7 @@ Telescope.modules.add("mobileNav", {
 Telescope.modules.add("top", {
   template: 'category_title',
   order: 10,
-  only: ["posts_category"]
+  only: ["postsDefault"]
 });
 
 // we want to wait until categories are all loaded to load the rest of the app

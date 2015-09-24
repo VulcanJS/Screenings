@@ -1,77 +1,144 @@
 // see https://www.discovermeteor.com/blog/template-level-subscriptions/
 
+var debug = false;
+
 /*
 
 This template acts as the controller that sets and manages the reactive context 
 for the embedded postsList template. It receives its parameters from a "caller" template.
+
+The goal is to resubscribe when either one of the following events happens: 
+- The external data context passed to the template from its parent changes
+- The template's own internal rLimit ReactiveVar changes
+
+In both cases, the template should resubscribe to the publication, and then once the subscription is ready
+update the terms used by the template helper's Posts.find(). 
 
 */
 
 Template.posts_list_controller.onCreated(function () {
 
   // 1. Initialization (*not* reactive!)
-  var instance = this;
+  var template = this;
+  var terms = _.clone(template.data.terms);
+  var limit = Settings.get('postsPerPage', 10);
+  var postsSubscription;
+  var usersSubscription;
+  var subscriptionTerms;
 
   // initialize the reactive variables
-  instance.terms = new ReactiveVar(instance.data.terms);
-  instance.postsLimit = new ReactiveVar(instance.data.terms.limit || Settings.get('postsPerPage', 10));
-  instance.ready = new ReactiveVar(false);
+  template.rTerms = new ReactiveVar(terms);
+  template.rLimit = new ReactiveVar(limit);
+  template.rReady = new ReactiveVar(false);
 
   // if caching is set to true, use Subs Manager. Else use template.subscribe. Default to false
-  var enableCache = (typeof instance.data.terms.enableCache === "undefined") ? false : instance.data.terms.enableCache;
-  var subscriber = enableCache ? Telescope.subsManager : instance;
+  var enableCache = (typeof terms.enableCache === "undefined") ? false : terms.enableCache;
+  var subscriber = enableCache ? Telescope.subsManager : template;
 
   // enable not subscribing to users on a per-controller basis
-  var subscribeToUsers = (typeof instance.data.terms.subscribeToUsers === "undefined") ? true : instance.data.terms.subscribeToUsers;
+  var subscribeToUsers = (typeof terms.subscribeToUsers === "undefined") ? true : terms.subscribeToUsers;
 
-  // 2. Autorun
+  // Autorun 1: reruns when Template.currentData().terms changes (and new terms are different from old ones),
+  // or when post limit changes. On first run, terms and limit won't have had time to change yet, so just
+  // do nothing
+  template.autorun(function (computation) {
 
-  // Autorun 1: when terms change, reset the limit
-  instance.autorun(function () {
+
     // add a dependency on data context to trigger the autorun
     var newTerms = Template.currentData().terms; // ⚡ reactive ⚡
-    if (!_.isEqual(newTerms, instance.data.terms)) {
-      instance.postsLimit.set(instance.data.terms.limit || Settings.get('postsPerPage', 10));
+
+    // get limit from local template variable
+    var rLimit = template.rLimit.get(); // ⚡ reactive ⚡
+        
+    if (!computation.firstRun) {
+
+      if (debug) {
+        console.log('// ------ autorun 1 ------ //');
+        console.log("terms: ", _.clone(terms));
+        console.log("newTerms: ", _.clone(newTerms));
+        console.log("isEqual?: ", _.isEqual(newTerms, terms));
+        console.log("oldLimit: ", limit);
+        console.log("newLimit: ", rLimit);
+      }
+
+      if (!_.isEqual(newTerms, terms)) {
+        // Case 1: terms have changed
+        // Note: if terms have changed, we reset the limit no matter its value
+
+        // update terms
+        terms = newTerms;
+
+        // reset limit
+        limit = Settings.get('postsPerPage', 10);
+
+      } else if (rLimit !== limit) {
+        // Case 2: limit has changed
+
+        // update limit
+        limit = rLimit;
+      
+      }
+
+      // set template.rReady to false to trigger Autorun 2
+      template.rReady.set(false);
     }
+
   });
 
-  // Autorun 2: will re-run when limit or terms are changed
-  instance.autorun(function () {
+  // Autorun 2: runs once on load, then reruns when template.rReady changes
+  // On first run, we subscribe with the original terms andlimit
+  template.autorun(function () {
 
-    // get terms from data context
-    var terms = Template.currentData().terms; // ⚡ reactive ⚡
+    var ready = template.rReady.get(); // ⚡ reactive ⚡
 
-    // add current userId to terms
-    terms.userId = Meteor.userId();
-    
-    // get limit from local template variable
-    var postsLimit = instance.postsLimit.get(); // ⚡ reactive ⚡
+    // if ready is false, (re)subscribe
+    if (!ready) {
+      
+      subscriptionTerms = _.clone(terms);
+      subscriptionTerms.limit = limit;
 
-    // create new subscriptionTerms object using the new limit
-    var subscriptionTerms = _.extend(_.clone(terms), {limit: postsLimit}); // extend terms with limit
+      if (debug) {
+        console.log('// ------ autorun 2 ------ //');
+        console.log("subscriptionTerms: ", subscriptionTerms);
+        console.log("template.rReady: ", ready);
+      }
 
-    // use this new object to subscribe
-    var postsSubscription = subscriber.subscribe('postsList', subscriptionTerms);
+      // subscribe to posts and (optionally) users
+      postsSubscription = subscriber.subscribe('postsList', subscriptionTerms);
+      if (subscribeToUsers) {
+        usersSubscription = subscriber.subscribe('postsListUsers', subscriptionTerms);
+      }
+
+    }
+
+  });
+
+  // Autorun 3: when subscription is ready, update the data helper's terms
+  // On the first run, the subscription won't be ready yet so there is no need to update the terms
+  template.autorun(function (computation) {
+  
+    var subscriptionsReady;
 
     if (subscribeToUsers) {
-      var usersSubscription = subscriber.subscribe('postsListUsers', subscriptionTerms);
-      var subscriptionsReady = postsSubscription.ready() && usersSubscription.ready(); // ⚡ reactive ⚡
+      subscriptionsReady = postsSubscription.ready() && usersSubscription.ready(); // ⚡ reactive ⚡
     } else {
-      var subscriptionsReady = postsSubscription.ready(); // ⚡ reactive ⚡
+      subscriptionsReady = postsSubscription.ready(); // ⚡ reactive ⚡
     }
 
-    // console.log('// ------ autorun running ------ //');
-    // console.log("terms: ", terms);
-    // console.log("limit: ", postsLimit);
-    // console.log("ready: ", subscriptionsReady);
-    // Tracker.onInvalidate(console.trace.bind(console));
+    if (!computation.firstRun) {
 
-    // if subscriptions are ready, set terms to subscriptionsTerms
-    if (subscriptionsReady) {
-      instance.terms.set(subscriptionTerms);
-      instance.ready.set(true);
+      if (debug) {
+        console.log('// ------ autorun 3 ------ //');
+        console.log("subscriptionsReady: ", subscriptionsReady);
+      }
+
+      // if subscriptions are ready, set terms to subscriptionsTerms
+      if (subscriptionsReady) {
+        template.rTerms.set(subscriptionTerms);
+        template.rReady.set(true);
+      }
+
     }
-  
   });
 
 });
@@ -84,14 +151,18 @@ Template.posts_list_controller.helpers({
 
     var context = this;
 
-    var instance = Template.instance();
+    var template = Template.instance();
 
-    var terms = instance.terms.get(); // ⚡ reactive ⚡
-    var postsReady = instance.ready.get(); // ⚡ reactive ⚡
+    var terms = template.rTerms.get(); // ⚡ reactive ⚡
+    var postsReady = template.rReady.get(); // ⚡ reactive ⚡
 
-    var postsLimit = terms.limit;
     var parameters = Posts.parameters.get(terms);
     var postsCursor = Posts.find(parameters.find, parameters.options);
+
+    // if (debug) {
+    //   console.log("// -------- data -------- //")
+    //   console.log("terms: ", terms);
+    // }
 
     var data = {
 
@@ -102,19 +173,19 @@ Template.posts_list_controller.helpers({
       postsReady: postsReady,
 
       // whether to show the load more button or not
-      hasMorePosts: postsCursor.count() >= postsLimit,
+      hasMorePosts: postsCursor.count() >= terms.limit,
 
       // what to do when user clicks "load more"
-      loadMoreHandler: function (instance) {
+      loadMoreHandler: function (template) {
         // increase limit by 5 and update it
-        var limit = instance.postsLimit.get();
+        var limit = template.rLimit.get();
         limit += Settings.get('postsPerPage', 10);
-        instance.postsLimit.set(limit);
+        template.rLimit.set(limit);
 
       },
 
       // the current instance
-      controllerInstance: instance,
+      controllerInstance: template,
 
       controllerOptions: context.options // pass any options on to the template
 

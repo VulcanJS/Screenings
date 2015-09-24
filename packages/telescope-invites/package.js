@@ -1,7 +1,7 @@
 Package.describe({
   name: "telescope:invites",
   summary: "Telescope invites package",
-  version: "0.24.0",
+  version: "0.25.0",
   git: "https://github.com/TelescopeJS/telescope-invites.git"
 });
 
@@ -17,7 +17,7 @@ Package.onUse(function (api) {
 
   // automatic (let the package specify where it's needed)
 
-  api.use(['telescope:core@0.24.0']);
+  api.use(['telescope:core@0.25.0']);
 
   // client
 
@@ -63,7 +63,7 @@ Package.onUse(function (api) {
 
   // i18n languages (must come last)
 
-  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "it", "ja", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sv", "th", "tr", "vi", "zh-CN"];
+  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "id", "it", "ja", "kk", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sl", "sv", "th", "tr", "vi", "zh-CN"];
   var languagesPaths = languages.map(function (language) {
     return "i18n/"+language+".i18n.json";
   });

@@ -1,7 +1,7 @@
 Package.describe({
   name: "telescope:getting-started",
   summary: "Getting started posts",
-  version: '0.24.0',
+  version: '0.25.0',
   git: "https://github.com/TelescopeJS/telescope-getting-started.git"
 });
 
@@ -17,7 +17,7 @@ Package.onUse(function (api) {
 
   // automatic (let the package specify where it's needed)
 
-  api.use(['telescope:core@0.24.0']);
+  api.use(['telescope:core@0.25.0']);
 
   // client
 
@@ -49,7 +49,7 @@ Package.onUse(function (api) {
 
   // client
 
-  api.addFiles([
+  api.addAssets([
     'content/images/stackoverflow.png',
     'content/images/telescope.png'
   ], ['client']);
@@ -60,15 +60,15 @@ Package.onUse(function (api) {
     'lib/server/dummy_content.js'
   ], ['server']);
 
-  api.addFiles('content/read_this_first.md', 'server', { isAsset: true });
-  api.addFiles('content/deploying_telescope.md', 'server', { isAsset: true });
-  api.addFiles('content/customizing_telescope.md', 'server', { isAsset: true });
-  api.addFiles('content/getting_help.md', 'server', { isAsset: true });
-  api.addFiles('content/removing_getting_started_posts.md', 'server', { isAsset: true });
+  api.addAssets('content/read_this_first.md', 'server');
+  api.addAssets('content/deploying_telescope.md', 'server');
+  api.addAssets('content/customizing_telescope.md', 'server');
+  api.addAssets('content/getting_help.md', 'server', 'server');
+  api.addAssets('content/removing_getting_started_posts.md', 'server');
 
   // i18n languages (must come last)
 
-  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "it", "ja", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sv", "th", "tr", "vi", "zh-CN"];
+  var languages = ["ar", "bg", "cs", "da", "de", "el", "en", "es", "et", "fr", "hu", "id", "it", "ja", "kk", "ko", "nl", "pl", "pt-BR", "ro", "ru", "sl", "sv", "th", "tr", "vi", "zh-CN"];
   var languagesPaths = languages.map(function (language) {
     return "i18n/"+language+".i18n.json";
   });
