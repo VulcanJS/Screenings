@@ -34,15 +34,18 @@ Package.onUse(function (api) {
     'lib/client/templates/typekit.html',
     'lib/client/stylesheets/screenings.scss',
 
-    'assets/screenings.png',
-    'assets/logo.svg',
-    'assets/bg.jpg',
-    'assets/favicon.ico'
-
   ], ['client']);
 
   api.addFiles([
     "i18n/en.i18n.json"
   ], ["client", "server"]);
 
+
+  api.addAssets([
+    'assets/screenings.png',
+    'assets/logo.svg',
+    'assets/bg.jpg',
+    'assets/favicon.ico'
+  ], ["client"]);
+  
 });
