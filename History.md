@@ -1,5 +1,9 @@
 ## v0.25 “FlowScope”
 
+### Meteor 1.2
+
+* Updated for Meteor 1.2
+
 ### Flow Router
 
 * Switched from Iron Router to Flow Router.
@@ -57,6 +61,7 @@
 * Updated `category_title` template to handle multiple categories.
 * Fixed Subscribe to Comments feature. 
 * Fixed Safari CSS issues by enabling autoprefixer.
+* Extracted Spiderable into its own `telescope:spiderable` package. 
 
 ### i18n
 
