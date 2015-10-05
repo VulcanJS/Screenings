@@ -29,7 +29,7 @@ Telescope.utils.getChildMenuItems = function (node) {
 
     var level = node.level;
     var childLevel = level + 1;
-    var menuItems = filterMenuItems(node.allItems);
+    var menuItems = filterMenuItems(node.menu.menuItems);
 
     menuItems = _.filter(menuItems, function (item) {
       // return elements with the correct parentId
@@ -39,7 +39,7 @@ Telescope.utils.getChildMenuItems = function (node) {
     // build "node container" object
     menuItems = _.map(menuItems, function (item) {
       return {
-        allItems: node.allItems,
+        menu: node.menu,
         level: childLevel,
         item: item
       };
@@ -52,14 +52,19 @@ Telescope.utils.getChildMenuItems = function (node) {
   }
 };
 
-// Template.menuComponent.onCreated(function () {
-//   menuItemsGlobal = this.data.menuItems;
-// });
+Template.menuComponent.onCreated(function () {
+  var menu = this.data;
+  // if menu has a custom item template specified, make that template inherit helpers from menuItem
+  if (menu.itemTemplate) {
+    Template[menu.itemTemplate].inheritsHelpersFrom("menuItem");
+  }
+});
 
 Template.menuComponent.helpers({
   rootMenuItems: function () {
 
-    var allMenuItems = this.menuItems;
+    var menu = this;
+    var allMenuItems = menu.menuItems;
     var menuItems = filterMenuItems(allMenuItems); // filter out admin items if needed
 
     // get root elements
@@ -70,7 +75,7 @@ Template.menuComponent.helpers({
     // build "node container" object
     menuItems = _.map(menuItems, function (item) {
       return {
-        allItems: allMenuItems,
+        menu: menu,
         level: 0,
         item: item
       };
@@ -126,8 +131,8 @@ Template.menuItem.onCreated(function () {
 });
 
 Template.menuItem.helpers({
-  hasTemplate: function () {
-    return !!this.item.template;
+  getTemplate: function () {
+    return this.item.template || this.menu.itemTemplate;
   },
   menuItemData: function () {
     // if a data property is defined, use it for data context. Else default to current node

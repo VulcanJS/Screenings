@@ -1,5 +1,5 @@
 Package.describe({
-  name: "telescope:screenings",
+  name: "screenings",
   summary: "Screenings theme",
   version: "0.0.1",
   git: "https://github.com/TelescopeJS/screenings"
@@ -22,7 +22,7 @@ Package.onUse(function (api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    
+    'lib/config.js'
   ], ['client', 'server']);
 
   api.addFiles([
@@ -32,6 +32,12 @@ Package.onUse(function (api) {
   api.addFiles([
 
     'lib/client/templates/typekit.html',
+    'lib/client/templates/sidebar.html',
+    'lib/client/templates/main_posts_list.html',
+    'lib/client/templates/categories_menu.html',
+    'lib/client/templates/categories_menu_item.html',
+    'lib/client/templates/views_menu.html',
+    'lib/client/templates/views_menu_item.html',
     'lib/client/stylesheets/screenings.scss',
 
   ], ['client']);
@@ -43,9 +49,31 @@ Package.onUse(function (api) {
 
   api.addAssets([
     'assets/screenings.png',
+    'assets/screeningsc.png',
     'assets/logo.svg',
     'assets/bg.jpg',
-    'assets/favicon.ico'
-  ], ["client"]);
+    'assets/favicon.ico',
+    
+    'assets/icons/best.svg',
+    'assets/icons/new.svg',
+    'assets/icons/short.svg',
+    'assets/icons/top.svg',
+    'assets/icons/pending.svg',
+
+    'assets/icons/animation.svg',
+    'assets/icons/documentaries.svg',
+    'assets/icons/illustration.svg',
+    'assets/icons/interviews.svg',
+    'assets/icons/lettering.svg',
+    'assets/icons/logo-design.svg',
+    'assets/icons/photography.svg',
+    'assets/icons/product-design.svg',
+    'assets/icons/prototyping.svg',
+    'assets/icons/talks.svg',
+    'assets/icons/typography.svg',
+    'assets/icons/ui-design.svg',
+    'assets/icons/ux.svg'
+
+  ], ["client", "server"]);
   
 });

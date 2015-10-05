@@ -1,0 +1,15 @@
+<template name="scr_main_posts_list">
+  <div class="main-posts-list">
+    <div class="right-col">
+      {{> sidebar}}
+    </div>
+    <div class="left-col">
+      {{> modules zone="postsListTop"}}
+      {{#if customTemplate}}
+        {{> Template.dynamic template=customTemplate data=arguments}}
+      {{else}}
+        {{> posts_list_controller arguments}}
+      {{/if}}
+    </div>
+  </div>
+</template>
