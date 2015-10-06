@@ -135,7 +135,6 @@ input[type="submit"], button, .button, .btn{
   font-weight: bold;
   // line-height:26px;
   // height:26px;
-  font-weight:normal;
   &.disabled, &.loading{
     background:$lighter-grey !important;
     pointer-events:none;

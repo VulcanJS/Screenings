@@ -1,3 +1,6 @@
+$grid-padding: 5px;
+$sidebar-width: 300px;
+
 /* regular: 300 */
 
 body, input, button, textarea{
@@ -52,60 +55,83 @@ $bolder: 800;
 
 /*================ Responsive Columns =================*/
 
-// .content-wrapper{
-//   padding: 0px;
-// }
+@mixin onecol(){
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
+@mixin twocol(){
+  @media screen and (min-width: 800px) and (max-width: 1000px) {
+    @content;
+  }
+}
+@mixin threecol(){
+  @media screen and (min-width: 1000px) and (max-width: 1400px) {
+    @content;
+  }
+}
+@mixin fourcol(){
+  @media screen and (min-width: 1400px) {
+    @content;
+  }
+}
 
-// @mixin onecol(){
-//   @media screen and (max-width: 800px) {
-//     @content;
-//   }
-// }
-// @mixin twocol(){
-//   @media screen and (min-width: 800px) and (max-width: 1000px) {
-//     @content;
-//   }
-// }
-// @mixin threecol(){
-//   @media screen and (min-width: 1000px) and (max-width: 1400px) {
-//     @content;
-//   }
-// }
-// @mixin fourcol(){
-//   @media screen and (min-width: 1400px) {
-//     @content;
-//   }
-// }
+.posts {
+  @include medium-large {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .post {
+    margin-right: $grid-padding;
+    margin-bottom: $grid-padding;
 
-// .posts {
-//   .post {
-//     margin-right: 0px;
+    @include onecol {
+      width: 100%;
+      margin-right: 0px;
+      &:nth-of-type(1) {
+        // order -2 means "appear before the newsletter banner"
+        order: -2;
+      }
+    }
+    @include twocol {
+      width: calc((100% - #{$grid-padding})/2);
+      // width: calc((100%)/2);
+      &:nth-of-type(2n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 2) {
+        order: -2;
+      }
+    }
+    @include threecol {
+      width: calc((100% - #{$grid-padding} * 2)/3);
+      // width: calc((100%)/3);
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 3) {
+        order: -2;
+      }
+    }
+    @include fourcol {
+      width: calc((100% - #{$grid-padding} * 3)/4);
+      // width: calc((100%)/4);
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(-n + 4) {
+        order: -2;
+      }
+    }
+    display: block;
+    padding: 0;
+  }
 
-//     @include medium-large{
-//       margin-bottom: 0px;
-//     }
+}
 
-//     @include onecol {
-//       width: 100%;
-//     }
-//     @include twocol {
-//       width: calc((100%)/2);
-//     }
-//     @include threecol {
-//       width: calc((100%)/3);
-//     }
-//     @include fourcol {
-//       width: calc((100%)/4);
-//     }
-//   }
-// }
-
-// .newsletter-banner-wrapper .newsletter-banner{
-//   margin-bottom: 0;
-//   @include small{
-//     margin-bottom: 10px;
-//   }
-// }
+.newsletter-banner-wrapper .newsletter-banner{
+  margin-bottom: $grid-padding;
+}
 
 // .category-heading-wrapper{
 //   background: white(0.1);
@@ -153,12 +179,12 @@ $bolder: 800;
 .main-posts-list{
   overflow: hidden;
   .left-col{
-    margin: 30px 360px 30px 30px;
+    margin: $grid-padding $sidebar-width+$grid-padding*2 $grid-padding $grid-padding;
   }
   .right-col{
     float: right;
-    width: 300px;
-    margin: 30px 30px 30px 0;
+    width: $sidebar-width;
+    margin: $grid-padding $grid-padding $grid-padding 0;
   }
 }
 .footer{
@@ -169,8 +195,8 @@ $bolder: 800;
 
 .sidebar{
 
-  .search, .views-menu-wrapper, .categories-menu-wrapper{
-    margin-bottom: 2px;
+  .search, .views-menu-wrapper, .categories-menu-wrapper, .footer-social{
+    margin-bottom: 5px;
     padding: 15px;
     background: #eee;
   }
@@ -271,4 +297,18 @@ $bolder: 800;
 
 .single-post-item .post-video{
   padding: 30px 0;
+}
+
+.footer-social{
+  a{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    &:last-child{
+      margin-bottom: 0px;
+    }
+  }
 }
