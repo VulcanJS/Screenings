@@ -84,7 +84,6 @@ accentContrast(".auth-buttons #login-buttons #login-buttons-password");
 accentContrast(".btn-primary");
 accentContrast(".btn-primary:link");
 accentContrast(".btn-primary:hover");
-accentContrast(".header .btn-primary");
 accentContrast(".header .btn-primary:link");
 accentContrast(".header .btn-primary:visited");
 accentContrast(".error");
