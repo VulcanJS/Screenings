@@ -1,0 +1,16 @@
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+<g>
+  <polygon fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" points="6.5,10.516 2.521,14.5 8.5,14.5   
+    "/>
+  <polyline fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" points="8.5,14.5 12.5,22 23.553,26.354 
+    12.5,10.521 12.5,22   "/>
+  
+    <line fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" x1="12.5" y1="10.521" x2="6.453" y2="10.516"/>
+  <polyline fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" points="12.5,10.521 19.5,3.667 
+    19.5,20.549   "/>
+  <polyline fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" points="19.5,9 25.531,5.656 
+    19.719,20.844   "/>
+</g>
+</svg>

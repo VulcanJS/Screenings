@@ -14,7 +14,8 @@ Package.onUse(function (api) {
   api.versionsFrom(['METEOR@1.0']);
 
   api.use([
-    'telescope:core@0.21.1'
+    'telescope:core@0.21.1',
+    'utilities:compile-svg'
   ]);
 
   api.addFiles([
@@ -60,6 +61,7 @@ Package.onUse(function (api) {
     'assets/icons/top.svg',
     'assets/icons/pending.svg',
 
+    'assets/icons/all_categories.svg',
     'assets/icons/animation.svg',
     'assets/icons/documentaries.svg',
     'assets/icons/illustration.svg',
