@@ -8,10 +8,10 @@ var getMenuItems = function () {
   });
 
   viewableItems = _.map(viewableItems, function (item) {
-    item.itemClass = item.label;
+    item.itemClass = "view-"+item.label;
     return item;
   });
-
+  console.log(viewableItems)
   return viewableItems; 
 };
 

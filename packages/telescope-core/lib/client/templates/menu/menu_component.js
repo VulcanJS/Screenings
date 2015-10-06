@@ -56,7 +56,7 @@ Template.menuComponent.onCreated(function () {
   var menu = this.data;
   // if menu has a custom item template specified, make that template inherit helpers from menuItem
   if (menu.itemTemplate) {
-    Template[menu.itemTemplate].inheritsHelpersFrom("menuItem");
+    Template[menu.itemTemplate].inheritsHelpersFrom("defaultMenuItem");
   }
 });
 
@@ -124,7 +124,7 @@ Template.menuItem.onCreated(function () {
   var context = this.data;
   // if menu item has a custom template specified, make that template inherit helpers from menuItem
   if (context.item.template) {
-    Template[context.item.template].inheritsHelpersFrom("menuItem");
+    Template[context.item.template].inheritsHelpersFrom("defaultMenuItem");
   }
   // this should not be reactive, as we only want to set it once on template creation
   this.expand = this.data.item.isExpanded;
@@ -138,6 +138,12 @@ Template.menuItem.helpers({
     // if a data property is defined, use it for data context. Else default to current node
     return this;
   },
+  childMenuItems: function () {    
+    return Telescope.utils.getChildMenuItems(this);
+  }
+});
+
+Template.defaultMenuItem.helpers({
   expandedClass: function () {
     // return this.item.isExpanded? "menu-expanded" : "";
     return Template.instance().expand ? "menu-expanded" : "";
@@ -166,13 +172,10 @@ Template.menuItem.helpers({
   },
   itemRoute: function () {
     return getRoute(this.item);
-  },
-  childMenuItems: function () {    
-    return Telescope.utils.getChildMenuItems(this);
   }
 });
 
-Template.menuComponent.events({
+Template.defaultMenuItem.events({
   'click .menu-collapsible .js-menu-toggle': function (e) {
     e.preventDefault();
     var $menuItem = $(e.currentTarget).closest(".js-menu-container");
