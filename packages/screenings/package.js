@@ -53,28 +53,28 @@ Package.onUse(function (api) {
     'assets/screeningsc.png',
     'assets/logo.svg',
     'assets/bg.jpg',
-    'assets/favicon.ico',
+    'assets/favicon.ico'
     
-    'assets/icons/best.svg',
-    'assets/icons/new.svg',
-    'assets/icons/short.svg',
-    'assets/icons/top.svg',
-    'assets/icons/pending.svg',
+    // 'assets/icons/best.svg',
+    // 'assets/icons/new.svg',
+    // 'assets/icons/short.svg',
+    // 'assets/icons/top.svg',
+    // 'assets/icons/pending.svg',
 
-    'assets/icons/all_categories.svg',
-    'assets/icons/animation.svg',
-    'assets/icons/documentaries.svg',
-    'assets/icons/illustration.svg',
-    'assets/icons/interviews.svg',
-    'assets/icons/lettering.svg',
-    'assets/icons/logo-design.svg',
-    'assets/icons/photography.svg',
-    'assets/icons/product-design.svg',
-    'assets/icons/prototyping.svg',
-    'assets/icons/talks.svg',
-    'assets/icons/typography.svg',
-    'assets/icons/ui-design.svg',
-    'assets/icons/ux.svg'
+    // 'assets/icons/all_categories.svg',
+    // 'assets/icons/animation.svg',
+    // 'assets/icons/documentaries.svg',
+    // 'assets/icons/illustration.svg',
+    // 'assets/icons/interviews.svg',
+    // 'assets/icons/lettering.svg',
+    // 'assets/icons/logo-design.svg',
+    // 'assets/icons/photography.svg',
+    // 'assets/icons/product-design.svg',
+    // 'assets/icons/prototyping.svg',
+    // 'assets/icons/talks.svg',
+    // 'assets/icons/typography.svg',
+    // 'assets/icons/ui-design.svg',
+    // 'assets/icons/ux.svg'
 
   ], ["client", "server"]);
   

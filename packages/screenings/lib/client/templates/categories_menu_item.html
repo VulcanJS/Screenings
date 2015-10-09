@@ -1,6 +1,6 @@
 <template name="scr_categories_menu_item">
-  <a class="menu-sub-level" href="{{itemRoute}}">
-    <div class="menu-icon"><img src="/packages/screenings/assets/icons/{{item.data.slug}}.svg"/></div>
-    <span class="menu-label">{{{itemLabel}}}</span>
+  <a class="menu-item-label" href="{{itemRoute}}">
+    <div class="menu-item-icon">{{{getSVG item.data.slug}}}</div>
+    <span class="menu-item-label-text">{{{getItemLabel}}}</span>
   </a>
 </template>

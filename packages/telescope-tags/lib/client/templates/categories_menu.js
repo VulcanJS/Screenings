@@ -11,13 +11,16 @@ Meteor.startup(function () {
     hasCategories: function () {
       return Categories.find().count();
     },
+    menuLabel: function () {
+      return i18n.t("categories");
+    },
     menuItems: function () {
 
       var activeCategories = FlowRouter.getQueryParam("cat");
 
       var defaultItem = [{
         route: "postsDefault",
-        label: "all_categories",
+        label: i18n.t("all_categories"),
         itemClass: "item-never-active",
         template: "defaultMenuItem"
       }];
@@ -54,14 +57,20 @@ Meteor.startup(function () {
 
       return defaultItem.concat(menuItems);
     },
+    startPosition: function () {
+      if (this.zone === "mobileNav") {
+        return "collapsed";
+      } else {
+        return "expanded";
+      }
+    },
     menuClass: function () {
-      // go back up 4 levels to get the zone that's including the menu
-      if (Template.parentData(4).zone === "mobileNav") {
+      if (this.zone === "mobileNav") {
         return 'menu-collapsible';
       } else if (Settings.get('navLayout', 'top-nav') === 'top-nav') {
         return 'menu-dropdown';
       } else {
-        return 'menu-collapsible menu-always-expanded';
+        return 'menu-collapsible';
       }
     }
   });

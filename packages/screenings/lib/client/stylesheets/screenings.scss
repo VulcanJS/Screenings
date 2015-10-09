@@ -206,11 +206,11 @@ $bolder: 800;
     max-width: none;
   }
 
-  .menu-contents{
+  .menu-items{
     display: flex;
     flex-wrap: wrap;
   }
-  .menu-top-level-label{
+  .menu-label{
     margin-bottom: 10px;
     font-size: 16px;
     display: block;
@@ -222,14 +222,14 @@ $bolder: 800;
     &:nth-of-type(3n){
       margin-right: 0;
     }
-    a{
+    .menu-item-label-wrapper{
       border: 2px solid #aaa;
       border-radius: 3px;
       display: block;
       padding-bottom: 100%;
     }
   }
-  .menu-icon{
+  .menu-item-icon{
     display: block;
     position: absolute;
     top: 0px;
@@ -239,13 +239,12 @@ $bolder: 800;
     display: flex;
     justify-content: center;
     align-items: center;
-    img{
+    svg.icon{
       display: block;
       width: 50%;
-
     }
   }
-  .menu-label{
+  .menu-item-label-text{
     display: block;
     position: absolute;
     bottom: 11px;
