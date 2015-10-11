@@ -3,8 +3,8 @@
 	 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
 <g>
 	
-		<circle fill="none" stroke="#010101" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="14" cy="14" r="11.5"/>
-	<polyline fill="none" stroke="#010101" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="13.5,8.5 
+		<circle fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="14" cy="14" r="11.5"/>
+	<polyline fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="13.5,8.5 
 		13.5,14 19.5,19.5 	"/>
 </g>
 </svg>

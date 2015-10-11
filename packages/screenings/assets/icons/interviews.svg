@@ -2,33 +2,33 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
 <g>
-	<polyline fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" points="16,11.5 18,11.5 18,15.5 22,11.5 
+	<polyline fill="none" stroke="none" stroke-linejoin="round" stroke-miterlimit="10" points="16,11.5 18,11.5 18,15.5 22,11.5 
 		25.5,11.5 25.5,2.5 10.5,2.5 10.5,6.5 	"/>
-	<path fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" d="M8,18.188v2.182L4.059,21.78
+	<path fill="none" stroke="none" stroke-linejoin="round" stroke-miterlimit="10" d="M8,18.188v2.182L4.059,21.78
 		C3.115,22.117,2.5,23.011,2.5,24.012V25.5h15v-1.488c0-1.001-0.615-1.895-1.559-2.231L12,20.369v-2.307"/>
 	
-		<ellipse fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" cx="9.901" cy="14.053" rx="3.947" ry="4.737"/>
-	<path fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" d="M13.828,13.625
+		<ellipse fill="none" stroke="none" stroke-linejoin="round" stroke-miterlimit="10" cx="9.901" cy="14.053" rx="3.947" ry="4.737"/>
+	<path fill="none" stroke="none" stroke-linejoin="round" stroke-miterlimit="10" d="M13.828,13.625
 		c-0.133,0.017-0.24,0.008-0.374,0.033c-1.345,0.259-2.208-0.229-2.948-1.523c-0.444,0.851-1.832,1.523-2.973,1.523
 		c-0.562,0-1.045-0.115-1.528-0.368"/>
 	<g>
 		<g>
 			<g>
-				<polygon fill="#010101" points="22,7 21,7 21,8 22,8 22,7 				"/>
+				<polygon fill="#000000" points="22,7 21,7 21,8 22,8 22,7 				"/>
 			</g>
 		</g>
 	</g>
 	<g>
 		<g>
 			<g>
-				<polygon fill="#010101" points="19,7 18,7 18,8 19,8 19,7 				"/>
+				<polygon fill="#000000" points="19,7 18,7 18,8 19,8 19,7 				"/>
 			</g>
 		</g>
 	</g>
 	<g>
 		<g>
 			<g>
-				<polygon fill="#010101" points="16,7 15,7 15,8 16,8 16,7 				"/>
+				<polygon fill="#000000" points="16,7 15,7 15,8 16,8 16,7 				"/>
 			</g>
 		</g>
 	</g>

@@ -4,13 +4,13 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
 <g>
-	<rect x="4.5" y="4" fill="none" stroke="#231F20" stroke-miterlimit="10" width="17" height="17"/>
-	<polyline fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" points="23.508,9.88 25.5,10.062 24.137,25 
+	<rect x="4.5" y="4" fill="none" stroke="none" stroke-miterlimit="10" width="17" height="17"/>
+	<polyline fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" points="23.508,9.88 25.5,10.062 24.137,25 
 		9.199,23.637 	"/>
-	<line fill="none" stroke="#231F20" stroke-miterlimit="10" x1="4.5" y1="18" x2="21.5" y2="18"/>
+	<line fill="none" stroke="none" stroke-miterlimit="10" x1="4.5" y1="18" x2="21.5" y2="18"/>
 	
-		<circle fill="none" stroke="#010101" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="13.097" cy="10.056" r="3.056"/>
-	<path fill="none" stroke="#010101" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.986,18H8.208
+		<circle fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="13.097" cy="10.056" r="3.056"/>
+	<path fill="none" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.986,18H8.208
 		c0-2.7,2.188-4.889,4.89-4.889C15.798,13.111,17.986,15.3,17.986,18z"/>
 </g>
 </svg>

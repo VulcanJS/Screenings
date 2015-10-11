@@ -4,17 +4,17 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
 <g>
-	<path fill="none" stroke="#231F20" stroke-miterlimit="10" d="M19,14.534c0,2.761-2.239,5-5,5c-2.762,0-5-2.239-5-5v-5
+	<path fill="none" stroke="none" stroke-miterlimit="10" d="M19,14.534c0,2.761-2.239,5-5,5c-2.762,0-5-2.239-5-5v-5
 		c0-2.761,2.238-5,5-5c2.761,0,5,2.239,5,5V14.534z"/>
-	<line fill="none" stroke="#231F20" stroke-miterlimit="10" x1="14" y1="21.534" x2="14" y2="25.034"/>
-	<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" x1="15" y1="5.034" x2="15" y2="7.534"/>
-	<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" x1="13" y1="5.034" x2="13" y2="7.534"/>
-	<line fill="none" stroke="#231F20" stroke-miterlimit="10" x1="7.291" y1="16.5" x2="20.709" y2="16.5"/>
-	<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" x1="9" y1="10.5" x2="12" y2="10.5"/>
-	<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" x1="9" y1="12.5" x2="12" y2="12.5"/>
-	<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" x1="16" y1="10.5" x2="19" y2="10.5"/>
-	<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" x1="16" y1="12.5" x2="19" y2="12.5"/>
-	<path fill="none" stroke="#231F20" stroke-linecap="round" stroke-miterlimit="10" d="M7,13v1.5c0,3.866,3.134,7,7,7s7-3.134,7-7
+	<line fill="none" stroke="none" stroke-miterlimit="10" x1="14" y1="21.534" x2="14" y2="25.034"/>
+	<line fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" x1="15" y1="5.034" x2="15" y2="7.534"/>
+	<line fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" x1="13" y1="5.034" x2="13" y2="7.534"/>
+	<line fill="none" stroke="none" stroke-miterlimit="10" x1="7.291" y1="16.5" x2="20.709" y2="16.5"/>
+	<line fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" y1="10.5" x2="12" y2="10.5"/>
+	<line fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" y1="12.5" x2="12" y2="12.5"/>
+	<line fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" x1="16" y1="10.5" x2="19" y2="10.5"/>
+	<line fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" x1="16" y1="12.5" x2="19" y2="12.5"/>
+	<path fill="none" stroke="none" stroke-linecap="round" stroke-miterlimit="10" d="M7,13v1.5c0,3.866,3.134,7,7,7s7-3.134,7-7
 		V13"/>
 </g>
 </svg>

@@ -2,9 +2,8 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
 <g>
-	<path fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" d="M17.5,19.5c0,0.55-0.45,1-1,1h-13
+	<path fill="none" stroke="none" stroke-linejoin="round" stroke-miterlimit="10" d="M17.5,19.5c0,0.55-0.45,1-1,1h-13
 		c-0.55,0-1-0.45-1-1v-11c0-0.55,0.45-1,1-1h13c0.55,0,1,0.45,1,1V19.5z"/>
-	<polygon fill="none" stroke="#010101" stroke-linejoin="round" stroke-miterlimit="10" points="25.5,19.5 19.5,16.5 19.5,11.5 
-		25.5,8.5 	"/>
+	<polygon fill="none" stroke="none" stroke-linejoin="round" stroke-miterlimit="10" points="25.5,19.5 19.5,16.5 19.5,11.5 25.5,8.5 25.5,19.5"/>
 </g>
 </svg>
