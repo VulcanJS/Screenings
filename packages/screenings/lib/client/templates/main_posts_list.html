@@ -1,8 +1,5 @@
 <template name="scr_main_posts_list">
   <div class="main-posts-list">
-    <div class="right-col">
-      {{> sidebar}}
-    </div>
     <div class="left-col">
       {{> modules zone="postsListTop"}}
       {{#if customTemplate}}
@@ -11,5 +8,6 @@
         {{> posts_list_controller arguments}}
       {{/if}}
     </div>
+    {{> modules zone="sidebar"}}
   </div>
 </template>

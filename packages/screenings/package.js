@@ -33,7 +33,7 @@ Package.onUse(function (api) {
   api.addFiles([
 
     'lib/client/templates/typekit.html',
-    'lib/client/templates/sidebar.html',
+    'lib/client/templates/placeholder.html',
     'lib/client/templates/main_posts_list.html',
     'lib/client/templates/categories_menu.html',
     'lib/client/templates/categories_menu.js',

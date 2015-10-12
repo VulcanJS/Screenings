@@ -1,7 +1,12 @@
 .banner.banner{
   background: rgba(255,255,255,0.7);
   margin-bottom: 10px;
-  padding: 20px 40px;
+  @include small{
+    padding: 20px;
+  }
+  @include medium-large{
+    padding: 20px 60px;
+  }
   position: relative;
   overflow: hidden;
 }
