@@ -22,7 +22,7 @@ Template.layout.onCreated(function (){
       }
 
     }
-  
+
   });
 
 });
@@ -35,10 +35,8 @@ Template.layout.helpers({
 
     FlowRouter.watchPathChange();
     var user = Meteor.user();
-    var userRoutes = ['signIn', 'signUp', 'changePwd', 'forgotPwd', 'resetPwd', 'enrollAccount', 'verifyEmail', 'signOut'];
-    var isOnUserRoute = !_.contains(userRoutes, FlowRouter.getRouteName());
-
-//     Router.onBeforeAction(filters.canView, {except: ['atSignIn', 'atSignUp', 'atForgotPwd', 'atResetPwd', 'signOut']});
+    var userRoutes = ['signIn', 'signUp', 'changePwd', 'forgotPwd', 'resetPwd', 'enrollAccount', 'verifyEmail', 'signOut', 'userEdit', 'userProfile'];
+    var isOnUserRoute = _.contains(userRoutes, FlowRouter.getRouteName());
 
     if (!isOnUserRoute && user && ! Users.userProfileComplete(user)){
       return {template: "user_complete"};
@@ -65,7 +63,8 @@ Template.layout.helpers({
   navLayout: function () {
     return Settings.get('navLayout', 'top-nav');
   },
-  pageName : function(){
+  pageName : function() {
+    FlowRouter.watchPathChange();
     return FlowRouter.current().route.name;
   },
   extraCode: function() {
