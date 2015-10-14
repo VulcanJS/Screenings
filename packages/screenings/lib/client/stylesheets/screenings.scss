@@ -1,10 +1,15 @@
 $grid-padding: 5px;
 $sidebar-width: 300px;
 
+@mixin greybg(){
+  background: #eee;
+  // background: #eee url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAKklEQVQIW2NkwAL+////nxFdHCwIAsgSMEGQGFwCWRAugS4IlsAmCJIAAAi+GAOGEcX5AAAAAElFTkSuQmCC");
+}
+
 /* regular: 300 */
 
 body, input, button, textarea{
-  font-family: "Klavika";
+  font-family: "klavika-web", "Helvetica Neue", "Hevletica", sans-serif;
   font-weight: 300;
 }
 
@@ -50,23 +55,23 @@ $medium-break: 800px;
 }
 
 $regular: 300;
-$bold: 500;
+$bold: 600;
 $bolder: 800;
 
 /*================ Responsive Columns =================*/
 
 @mixin onecol(){
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     @content;
   }
 }
 @mixin twocol(){
-  @media screen and (min-width: 800px) and (max-width: 1000px) {
+  @media screen and (min-width: 900px) and (max-width: 1200px) {
     @content;
   }
 }
 @mixin threecol(){
-  @media screen and (min-width: 1000px) and (max-width: 1400px) {
+  @media screen and (min-width: 1200px) and (max-width: 1400px) {
     @content;
   }
 }
@@ -131,6 +136,7 @@ $bolder: 800;
 
 .newsletter-banner-wrapper .newsletter-banner{
   margin-bottom: $grid-padding;
+  @include greybg;
 }
 
 // .category-heading-wrapper{
@@ -144,15 +150,18 @@ $bolder: 800;
 }
 .post-footer{
   background: #eee;
+  @include greybg;
 }
 
 .inner-wrapper{
 }
 
 .content-wrapper{
-  margin: 60px 0px 0px 0px !important;
-  padding: 0 !important;
-  position: relative;
+  @include medium-large{
+    margin: 60px 0px 0px 0px !important;
+    padding: 0 !important;
+    position: relative;
+  }
 }
 .main-posts-list{
 
@@ -164,16 +173,18 @@ $bolder: 800;
 
 .top-nav .header{
   // border-bottom: 1px solid #ddd;
-  margin: 0;
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  padding: 0 30px;
+  @include medium-large{
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0 30px;
+  }
 }
 .tagline{
-  display: none;
+  margin: 0;
 }
 
 .main-posts-list{
@@ -188,19 +199,25 @@ $bolder: 800;
     .left-col{
       margin: 0 $grid-padding 0 $grid-padding;
       flex-grow: 1;
+      order: 2;
     }
     .sidebar{
       width: $sidebar-width;
-      margin: 0 $grid-padding $grid-padding 0;
+      // margin: 0 $grid-padding $grid-padding 0;
+      margin: 0 0 $grid-padding $grid-padding;
       flex-shrink: 0;
+      order: 1;
     }
   }
 
 }
 .footer{
-  border-top: 1px solid #ddd;
-  padding: 30px 0;
+  // border-top: 1px solid #ddd;
+  padding: 20px 0 30px 0;
   margin: 0;
+  .pages-menu{
+    margin-right: 10px;
+  }
 }
 
 .sidebar{
@@ -212,8 +229,12 @@ $bolder: 800;
 
   .sidebar-module{
     background: #eee;
+    @include greybg;
     margin-bottom: 5px;
     padding: 15px;
+    &:last-child{
+      margin-bottom: 0;
+    }
   }
 
   .footer-social{
@@ -223,7 +244,7 @@ $bolder: 800;
   .placeholder{
     flex-grow: 1;
     order: 100;
-    margin-bottom: 0;
+    padding: 0;
   }
 
   .search-field, .search.empty .search-field{
@@ -287,7 +308,7 @@ $bolder: 800;
     width: 100%;
     white-space: nowrap;
     font-size: 12px;
-    font-weight: $regular;
+    font-weight: $bold;
     text-align: center;
     .category-posts-count{
       display: none;
@@ -375,21 +396,33 @@ $bolder: 800;
 }
 
 .top-nav .header{
-  padding: 0 10px;
-  .logo{
-    order: 1;
-    flex-grow: 0;
-    flex-basis: auto;
-  }
-  .primary-nav{
-    order: 2;
-    padding-left: 20px;
-    flex-grow: 1;
+  @include medium-large{
+    padding: 0 10px;
+    .logo{
+      order: 1;
+      flex-grow: 0;
+      flex-basis: auto;
+      display: flex;
+      .tagline{
+        margin-left: 5px;
+        display: block;
+        color: #333;
+        position: relative;
+        top: 5px;
+      }
+    }
+    .primary-nav{
+      order: 2;
+      padding-left: 20px;
+      flex-grow: 1;
+    }
   }
 }
 
 .posts-load-more{
-  margin-bottom: $grid-padding;
+  .more-button{
+    margin-bottom: $grid-padding;
+  }
 }
 
 .category-heading-wrapper {
@@ -416,5 +449,34 @@ $bolder: 800;
         background-color: rgba(0, 146, 159, 0.85);
       }
     }
+  }
+}
+
+.intro{
+  h2{
+    font-size: 18px;
+  }
+}
+
+.mobile-menu{
+  .menu-item-icon{
+    display: none;
+  }
+}
+
+.more-button{
+  // height: 107px;
+  // line-height: 107px;
+}
+
+.comment-list{
+  &.no-comments{
+    display: none;
+  }
+}
+
+.grid-small{
+  @include medium-large{
+    padding: 0 60px;
   }
 }

@@ -31,8 +31,9 @@ Package.onUse(function (api) {
   ], ['server']);
 
   api.addFiles([
-
     'lib/client/templates/typekit.html',
+    'lib/client/templates/tagline.html',
+    'lib/client/templates/intro.html',
     'lib/client/templates/placeholder.html',
     'lib/client/templates/main_posts_list.html',
     'lib/client/templates/categories_menu.html',
